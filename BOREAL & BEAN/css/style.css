@@ -83,6 +83,7 @@ header::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 40px;
+    padding-top: 24px;
 }
 
 .product-card {
