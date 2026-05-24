@@ -185,28 +185,43 @@
         
         <div class="demo-box">
             <h3>In-text Link</h3>
+
+            <h4>sample code:</h4>
+            <code>&lt;p&gt;Our most popular drink is the &lt;a href="menu.html"&gt;Spruce Tip Latte&lt;/a&gt;.&lt;/p&gt;</code>
             <p>Our most popular drink is the <a href="menu.html">Spruce Tip Latte</a>, made with foraged spruce tips and Canadian maple syrup.</p>
         </div>
         
         <div class="demo-box">
             <h3>Navigation Link</h3>
-            <a href="menu.html" class="nav-link">Explore Menu</a>
+
+            <h4>sample code:</h4>
+            <code>&lt;a href="menu.html" class="nav-link"&gt;Explore Menu&lt;/a&gt;</code>
         </div>
         
         <div class="demo-box">
             <h3>Submit & Reset Buttons</h3>
+
+            <h4>Sample Code</h4>
+            <p><code>&lt;input type="submit" value="Place Order"&gt;&lt;input type="reset" value="Reset"&gt;</code></p>
+            
             <input type="submit" value="Place Order">
             <input type="reset" value="Reset">
         </div>
         
         <div class="demo-box">
             <h3>Text Input + Label</h3>
+
+            <h4>Sample Code</h4>
+            <p><code>&lt;label for="email"&gt;Email Address:&lt;/label&gt;&lt;input type="email" id="email" placeholder="your@email.com"&gt;</code></p>
             <label for="email">Email Address:</label><br><br>
             <input type="email" id="email" placeholder="your@email.com">
         </div>
         
         <div class="demo-box">
             <h3>Radio Button + Label</h3>
+
+            <h4>Sample Code</h4>
+            <p><code>&lt;label&gt;&lt;input type="radio" name="size" value="small"&gt; Small&lt;/label&gt;&lt;label&gt;&lt;input type="radio" name="size" value="medium"&gt;Medium&lt;/label&gt;&lt;label&gt;&lt;input type="radio" name="size" value="large"&gt;Large&lt;/label&gt;</code></p>
             <label><input type="radio" name="size" value="small"> Small</label><br><br>
             <label><input type="radio" name="size" value="medium" checked> Medium</label><br><br>
             <label><input type="radio" name="size" value="large"> Large</label>
@@ -214,8 +229,17 @@
         
         <div class="demo-box">
             <h3>Image as Link</h3>
+
+            <h4>Sample Code</h4>
+
+            <p><code>
+                &lt;a href="menu.html"&gt;
+                    &lt;img src="image/coffee.jpg" alt="Spruce Tip Latte"&gt;
+                &lt;/a&gt;
+            </code></p>
+
             <a href="menu.html">
-                <img src="https://source.unsplash.com/random/800x500/?latte-art" alt="Spruce Tip Latte" style="max-width:100%; border-radius:16px;">
+                <img src="image/coffee.jpg" alt="Spruce Tip Latte" style="max-width:100%; border-radius:16px;">
             </a>
         </div>
     </div>
@@ -243,9 +267,30 @@
         <h2>3. Combined Elements</h2>
         
         <h3>Product Listing</h3>
+
+        <h4>Sample Code</h4>
+
+        <p><code>
+            &lt;div class="product-card"&gt;
+
+            &lt;img src="image/coffee.jpg" alt="Coffee"&gt;
+
+            &lt;h3&gt;Signature Spruce Tip Latte&lt;/h3&gt;
+
+            &lt;p&gt;
+            Espresso with steamed milk and maple syrup
+            &lt;/p&gt;
+
+            &lt;p&gt;&lt;strong&gt;CA$7.90&lt;/strong&gt;&lt;/p&gt;
+
+            &lt;button&gt;Add to Cart&lt;/button&gt;
+
+            &lt;/div&gt;
+        </code></p>
+
         <div class="product-grid">
             <div class="product-card">
-                <img src="https://source.unsplash.com/random/600x400/?coffee" alt="Signature Latte">
+                <img src="image/coffee.jpg" alt="Signature Latte">
                 <div style="padding:25px;">
                     <h4>Spruce Tip Latte</h4>
                     <p><strong>CA$7.90</strong></p>
@@ -254,7 +299,7 @@
             </div>
             
             <div class="product-card">
-                <img src="https://source.unsplash.com/random/600x400/?bread" alt="Maple Bread">
+                <img src="image/bread.jpg" alt="Maple Bread">
                 <div style="padding:25px;">
                     <h4>Maple Butter Bread</h4>
                     <p><strong>CA$6.50</strong></p>
@@ -264,6 +309,31 @@
         </div>
 
         <h3>Payment Form</h3>
+
+        <h4>Sample Code</h4>
+        <p><code>
+            &lt;form&gt;
+
+            &lt;label&gt;Card Number&lt;/label&gt;
+
+            &lt;input
+            type="text"
+            placeholder="1234 5678 9012 3456"&gt;
+
+            &lt;label&gt;Payment Method&lt;/label&gt;
+
+            &lt;label&gt;
+            &lt;input type="radio" name="method"&gt;
+            Visa
+            &lt;/label&gt;
+
+            &lt;input
+            type="submit"
+            value="Pay Securely"&gt;
+
+            &lt;/form&gt;
+        </code></p>
+
         <div class="demo-box" style="max-width:500px;">
             <form>
                 <label for="card">Card Number</label><br><br>
@@ -276,6 +346,29 @@
         </div>
 
         <h3>Checkout Cart</h3>
+
+        <h4>Sample Code</h4>
+
+        <p><code>
+            &lt;div class="cart"&gt;
+
+            &lt;h4&gt;Your Cart&lt;/h4&gt;
+
+            &lt;p&gt;
+            1. Spruce Tip Latte — CA$7.90
+            &lt;/p&gt;
+
+            &lt;p&gt;
+            2. Maple Butter Bread — CA$6.50
+            &lt;/p&gt;
+
+            &lt;p&gt;
+            &lt;strong&gt;Total: CA$14.40&lt;/strong&gt;
+            &lt;/p&gt;
+
+            &lt;/div&gt;
+        </code></p>
+
         <div class="cart">
             <h4>Your Cart</h4>
             <p>1. Spruce Tip Latte × 1 — <strong>CA$7.90</strong></p>
