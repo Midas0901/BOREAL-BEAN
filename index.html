@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boreal & Bean — Rooted in the North</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+
+        /* ═══════════════════════════════════════
+           ROOT VARIABLES & RESET
+        ═══════════════════════════════════════ */
+        :root {
+            --coffee:      #1A0F08;
+            --espresso:    #2C1A0E;
+            --bark:        #3D2314;
+            --moss:        #4A5240;
+            --fern:        #6B7A5A;
+            --latte:       #C8A97A;
+            --cream:       #F2EDE3;
+            --parchment:   #EDE5D4;
+            --gold:        #B8964E;
+            --gold-light:  #D4AF6E;
+            --fog:         #D0C9BC;
+            --white:       #FAF8F4;
+            --text-dark:   #1A0F08;
+            --text-mid:    #4A3728;
+            --text-soft:   #7A6655;
+
+            --ease-silk: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-snap: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.9;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* ═══════════════════════════════════════
+           CUSTOM CURSOR
+        ═══════════════════════════════════════ */
+        .cursor-dot {
+            width: 8px; height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: fixed; top: 0; left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s, background 0.3s;
+        }
+
+        .cursor-ring {
+            width: 36px; height: 36px;
+            border: 1.5px solid var(--gold);
+            border-radius: 50%;
+            position: fixed; top: 0; left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.18s var(--ease-silk), width 0.3s, height 0.3s, border-color 0.3s;
+            opacity: 0.7;
+        }
+
+        body:hover .cursor-ring { opacity: 1; }
+
+        /* ═══════════════════════════════════════
+           GRAIN OVERLAY
+        ═══════════════════════════════════════ */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9997;
+            opacity: 0.35;
+        }
+
+        /* ═══════════════════════════════════════
+           TYPOGRAPHY
+        ═══════════════════════════════════════ */
+        h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 0.06em; }
+        h4, h5, blockquote { font-family: 'Cormorant Garamond', serif; }
+        em { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+
+        /* ═══════════════════════════════════════
+           SCROLL REVEAL SYSTEM
+        ═══════════════════════════════════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(55px);
+            transition: opacity 0.95s var(--ease-silk), transform 0.95s var(--ease-silk);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.95s var(--ease-silk), transform 0.95s var(--ease-silk);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.95s var(--ease-silk), transform 0.95s var(--ease-silk);
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.88);
+            transition: opacity 0.9s var(--ease-silk), transform 0.9s var(--ease-silk);
+        }
+        .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+        .delay-1 { transition-delay: 0.1s !important; }
+        .delay-2 { transition-delay: 0.22s !important; }
+        .delay-3 { transition-delay: 0.34s !important; }
+        .delay-4 { transition-delay: 0.46s !important; }
+        .delay-5 { transition-delay: 0.58s !important; }
+
+        /* ═══════════════════════════════════════
+           HEADER / HERO
+        ═══════════════════════════════════════ */
+        header {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        header video {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.45) saturate(0.7);
+            transform: scale(1.04);
+            transition: transform 12s ease;
+        }
+
+        header:hover video { transform: scale(1.0); }
+
+        .header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10,5,2,0.3) 0%,
+                rgba(26,15,8,0.55) 50%,
+                rgba(26,15,8,0.85) 100%
+            );
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px 24px;
+        }
+
+        .header-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.45em;
+            color: var(--gold-light);
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeSlideUp 1.2s var(--ease-silk) 0.3s forwards;
+        }
+
+        .header-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3.5rem, 9vw, 7.5rem);
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            line-height: 0.9;
+            text-shadow: 0 8px 40px rgba(0,0,0,0.6);
+            opacity: 0;
+            animation: fadeSlideUp 1.4s var(--ease-silk) 0.6s forwards;
+        }
+
+        .header-title span {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.38em;
+            letter-spacing: 0.5em;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+
+        .header-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+            color: rgba(242, 237, 227, 0.8);
+            margin-top: 28px;
+            letter-spacing: 0.04em;
+            opacity: 0;
+            animation: fadeSlideUp 1.4s var(--ease-silk) 1.0s forwards;
+        }
+
+        .header-divider {
+            width: 60px; height: 1px;
+            background: var(--gold);
+            margin: 28px auto;
+            opacity: 0;
+            animation: fadeSlideUp 1s var(--ease-silk) 1.3s forwards;
+        }
+
+        .header-cta {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: var(--coffee);
+            background: var(--gold-light);
+            padding: 16px 44px;
+            border-radius: 0;
+            text-decoration: none;
+            transition: all 0.4s var(--ease-silk);
+            opacity: 0;
+            animation: fadeSlideUp 1s var(--ease-silk) 1.5s forwards;
+        }
+
+        .header-cta:hover {
+            background: var(--white);
+            color: var(--espresso);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 2s forwards;
+        }
+
+        .scroll-indicator span {
+            font-family: 'Cinzel', serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.4em;
+            color: var(--fog);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.4; transform: scaleY(1); }
+            50% { opacity: 1; transform: scaleY(1.15); }
+        }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ═══════════════════════════════════════
+           NAVIGATION
+        ═══════════════════════════════════════ */
+        .main-nav {
+            background: rgba(26, 15, 8, 0.97) !important;
+            padding: 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184, 150, 78, 0.2);
+        }
+
+        .nav-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: var(--gold-light);
+            text-decoration: none;
+            padding: 20px 0;
+            white-space: nowrap;
+        }
+
+        .nav-links { display: flex; align-items: center; }
+
+        .nav-link {
+            color: rgba(242, 237, 227, 0.75);
+            padding: 22px 22px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.28em;
+            transition: all 0.35s var(--ease-silk);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 14px; left: 50%;
+            width: 0; height: 1px;
+            background: var(--gold);
+            transform: translateX(-50%);
+            transition: width 0.35s var(--ease-silk);
+        }
+
+        .nav-link:hover { color: var(--gold-light); }
+        .nav-link:hover::after { width: 50%; }
+
+        .nav-link.nav-checkout {
+            background: var(--gold);
+            color: var(--coffee);
+            padding: 10px 24px;
+            margin-left: 16px;
+            font-weight: 600;
+            transition: all 0.35s var(--ease-silk);
+        }
+
+        .nav-link.nav-checkout::after { display: none; }
+        .nav-link.nav-checkout:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(184,150,78,0.4);
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION BASE
+        ═══════════════════════════════════════ */
+        .section {
+            max-width: 1260px;
+            margin: 110px auto;
+            padding: 0 40px;
+        }
+
+        .section-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.5em;
+            color: var(--gold);
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+            margin-bottom: 18px;
+        }
+
+        h2.section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.0rem, 4vw, 3.2rem);
+            color: var(--espresso);
+            text-align: center;
+            margin-bottom: 16px;
+            position: relative;
+            letter-spacing: 0.07em;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px; height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 20px auto 50px;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 1 — ABOUT
+        ═══════════════════════════════════════ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image-wrap {
+            position: relative;
+        }
+
+        .about-image-wrap::before {
+            content: '';
+            position: absolute;
+            top: -18px; left: -18px;
+            right: 18px; bottom: 18px;
+            border: 1px solid var(--gold);
+            pointer-events: none;
+            z-index: 0;
+            transition: all 0.5s var(--ease-silk);
+        }
+
+        .about-image-wrap:hover::before {
+            top: -10px; left: -10px;
+            right: 10px; bottom: 10px;
+        }
+
+        .about-image-wrap img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            display: block;
+            position: relative;
+            z-index: 1;
+            filter: sepia(0.12) contrast(1.05);
+            transition: transform 0.8s var(--ease-silk), filter 0.8s;
+        }
+
+        .about-image-wrap:hover img {
+            transform: scale(1.03);
+            filter: sepia(0) contrast(1.1);
+        }
+
+        .about-text blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.65rem;
+            line-height: 1.5;
+            color: var(--espresso);
+            border-left: 3px solid var(--gold);
+            padding-left: 24px;
+            margin-bottom: 32px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-mid);
+            margin-bottom: 18px;
+            line-height: 1.95;
+        }
+
+        .about-badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .badge {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 8px 18px;
+            transition: all 0.3s;
+        }
+
+        .badge:hover {
+            background: var(--gold);
+            color: var(--coffee);
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 2 — EVENTS
+        ═══════════════════════════════════════ */
+        .events-section {
+            background: var(--espresso);
+            padding: 110px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .events-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+
+        .events-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+
+        .events-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Cinzel', serif;
+            font-size: 18vw;
+            font-weight: 900;
+            color: rgba(255,255,255,0.02);
+            white-space: nowrap;
+            pointer-events: none;
+            letter-spacing: 0.15em;
+            user-select: none;
+        }
+
+        .events-inner {
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .events-inner .section-label { color: var(--gold-light); }
+
+        .events-inner h2.section-title {
+            color: var(--cream);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .event-card {
+            border: 1px solid rgba(184,150,78,0.25);
+            padding: 44px 40px;
+            position: relative;
+            transition: all 0.5s var(--ease-silk);
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(184,150,78,0.08) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .event-card:hover { border-color: var(--gold); transform: translateY(-8px); }
+        .event-card:hover::before { opacity: 1; }
+
+        .event-date {
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.35em;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        .event-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: 14px;
+            letter-spacing: 0.02em;
+        }
+
+        .event-card p {
+            font-size: 1.0rem;
+            color: rgba(242,237,227,0.65);
+            margin-bottom: 28px;
+            line-height: 1.85;
+        }
+
+        .event-btn {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 12px 28px;
+            text-decoration: none;
+            transition: all 0.35s var(--ease-silk);
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .event-btn:hover {
+            background: var(--gold);
+            color: var(--coffee);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(184,150,78,0.3);
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 3 — MULTI-PRODUCT LISTING
+        ═══════════════════════════════════════ */
+        .products-section {
+            padding: 110px 0;
+            background: var(--parchment);
+            position: relative;
+        }
+
+        .products-inner {
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+        }
+
+        .product-card {
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.6s var(--ease-silk), box-shadow 0.6s var(--ease-silk);
+        }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold), var(--latte));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-silk);
+        }
+
+        .product-card:hover { transform: translateY(-14px); box-shadow: 0 40px 80px rgba(26,15,8,0.18); }
+        .product-card:hover::after { transform: scaleX(1); }
+
+        .product-img-wrap {
+            overflow: hidden;
+            height: 240px;
+            flex-shrink: 0;
+        }
+
+        .product-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.9s var(--ease-silk), filter 0.6s;
+            filter: sepia(0.08);
+        }
+
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.1);
+            filter: sepia(0) contrast(1.08);
+        }
+
+        .product-body {
+            padding: 30px 28px 34px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            font-family: 'Cinzel', serif;
+            font-size: 0.58rem;
+            letter-spacing: 0.4em;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .product-body h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--espresso);
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .product-body p {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            line-height: 1.8;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--fog);
+            padding-top: 18px;
+        }
+
+        .product-price {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--espresso);
+            font-weight: 600;
+        }
+
+        .product-link {
+            font-family: 'Cinzel', serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-link::after {
+            content: '→';
+            transition: transform 0.3s;
+        }
+
+        .product-link:hover { color: var(--bark); }
+        .product-link:hover::after { transform: translateX(5px); }
+
+        /* ═══════════════════════════════════════
+           PARALLAX BANNER
+        ═══════════════════════════════════════ */
+        .parallax-banner {
+            position: relative;
+            height: 440px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .parallax-banner-bg {
+            position: absolute;
+            inset: -60px 0;
+            background: url('forest.jpg') center/cover no-repeat;
+            filter: brightness(0.35) saturate(0.6);
+            will-change: transform;
+        }
+
+        .parallax-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(26,15,8,0.7), rgba(26,15,8,0.3), rgba(26,15,8,0.7));
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 40px;
+        }
+
+        .parallax-content blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: var(--cream);
+            line-height: 1.45;
+            max-width: 820px;
+        }
+
+        .parallax-content cite {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.4em;
+            color: var(--gold);
+            margin-top: 24px;
+            font-style: normal;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 4 — PURCHASING PROCESS
+        ═══════════════════════════════════════ */
+        .process-section {
+            padding: 110px 0;
+            background: var(--cream);
+        }
+
+        .process-inner {
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 16px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 72px; height: 72px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            background: var(--cream);
+            margin-bottom: 22px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s var(--ease-silk);
+        }
+
+        .process-step:hover .step-number {
+            background: var(--gold);
+            color: var(--coffee);
+            transform: scale(1.15);
+            box-shadow: 0 10px 30px rgba(184,150,78,0.3);
+        }
+
+        .step-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            color: var(--espresso);
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            font-size: 0.88rem;
+            color: var(--text-soft);
+            line-height: 1.7;
+        }
+
+        .process-cta-wrap {
+            text-align: center;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            color: var(--white);
+            background: var(--espresso);
+            padding: 20px 52px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-silk);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(184,150,78,0.25), transparent);
+            transition: left 0.6s var(--ease-silk);
+        }
+
+        .btn-primary:hover { background: var(--bark); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,15,8,0.3); }
+        .btn-primary:hover::before { left: 100%; }
+
+        /* ═══════════════════════════════════════
+           SECTION 5 — FEEDBACK
+        ═══════════════════════════════════════ */
+        .feedback-section {
+            padding: 110px 0;
+            background: var(--parchment);
+        }
+
+        .feedback-inner {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .feedback-box {
+            background: var(--white);
+            padding: 60px 56px;
+            box-shadow: 0 30px 80px rgba(26,15,8,0.1);
+            position: relative;
+        }
+
+        .feedback-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold), var(--latte), var(--gold));
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.63rem;
+            letter-spacing: 0.3em;
+            color: var(--espresso);
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--fog);
+            background: var(--cream);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            appearance: none;
+            border-radius: 0;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(184,150,78,0.12);
+        }
+
+        textarea.form-control { height: 150px; resize: vertical; }
+
+        .stars-wrap {
+            display: flex;
+            gap: 6px;
+        }
+
+        .stars-wrap span {
+            font-size: 2.2rem;
+            color: var(--fog);
+            cursor: pointer;
+            transition: color 0.2s, transform 0.2s;
+            line-height: 1;
+        }
+
+        .stars-wrap span:hover,
+        .stars-wrap span.active { color: var(--gold); transform: scale(1.2); }
+
+        /* ═══════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════ */
+        footer {
+            background: var(--coffee);
+            color: rgba(242,237,227,0.6);
+            text-align: center;
+            padding: 80px 40px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 0.25em;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+        }
+
+        .footer-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: rgba(242,237,227,0.45);
+            margin-bottom: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 36px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            font-family: 'Cinzel', serif;
+            font-size: 0.62rem;
+            letter-spacing: 0.3em;
+            color: rgba(242,237,227,0.5);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover { color: var(--gold-light); }
+
+        .footer-divider {
+            width: 60px; height: 1px;
+            background: rgba(184,150,78,0.3);
+            margin: 0 auto 30px;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: rgba(242,237,227,0.3);
+            letter-spacing: 0.06em;
+        }
+
+        /* ═══════════════════════════════════════
+           FLOATING LEAVES ANIMATION
+        ═══════════════════════════════════════ */
+        .leaf {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            font-size: 1.1rem;
+            animation: leafFall linear infinite;
+        }
+
+        @keyframes leafFall {
+            0%   { opacity: 0; transform: translateY(-20px) rotate(0deg); }
+            10%  { opacity: 0.4; }
+            90%  { opacity: 0.2; }
+            100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .about-grid { grid-template-columns: 1fr; gap: 50px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+            .process-steps::before { display: none; }
+            .events-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-logo { font-size: 0.85rem; }
+            .nav-link { padding: 18px 14px; font-size: 0.6rem; letter-spacing: 0.15em; }
+            .product-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
+            .feedback-box { padding: 40px 28px; }
+            .section { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ══════════════ HEADER ══════════════ -->
+    <header id="home">
+        <video autoplay loop muted playsinline>
+            <source src="coffeefarm.mp4" type="video/mp4">
+        </video>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <p class="header-eyebrow">Est. Ontario, Canada</p>
+            <h1 class="header-title">
+                BOREAL
+                <span>& BEAN</span>
+            </h1>
+            <div class="header-divider"></div>
+            <p class="header-tagline"><em>Rooted in the North, Roasted for the Soul</em></p>
+            <a href="menu.html" class="header-cta" style="animation-delay:1.7s">Explore the Menu</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+    <!-- ══════════════ NAVIGATION ══════════════ -->
+    <nav class="main-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">B &amp; B</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="story.html" class="nav-link">Our Story</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="checkout.html" class="nav-link nav-checkout">Checkout</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- ══════════════ SECTION 1: ABOUT ══════════════ -->
+<div class="section" style="margin-top:130px; margin-bottom:130px;">
+    <span class="section-label reveal">Our Origin</span>
+    <h2 class="section-title reveal delay-1">What is Boreal &amp; Bean</h2>
+    <div class="about-grid">
+        <div class="about-image-wrap reveal-left">
+            <img src="Boreal & Bean.jpg" alt="Boreal & Bean">
+        </div>
+        <div class="about-text reveal-right">
+            <blockquote>
+                "Born from the crisp air, damp earth, and crackling pine fires of Algonquin."
+            </blockquote>
+            <p>Boreal &amp; Bean was born from a deep love for Canada's northern wilderness. Our founders, passionate backcountry campers, were inspired by the untouched boreal forests of Ontario.</p>
+            <p>Although coffee cannot grow in Canada, we bring the spirit of the north to every cup. We source beans from sustainable farms in Central America and East Africa, then slow-roast them in our eco-roastery in Ontario.</p>
+            <p>We honor the land with 100% Canadian craftsmanship — using reclaimed wood, local ceramics, fully compostable packaging, and our <em>"Bring-A-Tree"</em> initiative, planting one tree for every 50 cups sold.</p>
+            <p>Our drinks feature unique wild-infused flavors using Canadian maple syrup, birch syrup, and foraged spruce tips — delivering more than just coffee, but a true taste of the wilderness.</p>
+            
+            <!-- Badges with Wikipedia Links -->
+            <div class="about-badges">
+                <a href="https://en.wikipedia.org/wiki/Coffee_roasting" target="_blank" class="badge">Eco-Roastery</a>
+                <a href="https://en.wikipedia.org/wiki/Wildcrafting" target="_blank" class="badge">Wild-Infused</a>
+                <a href="https://en.wikipedia.org/wiki/Reforestation" target="_blank" class="badge">Tree Planting</a>
+                <a href="https://en.wikipedia.org/wiki/Handicraft" target="_blank" class="badge">Canadian Craft</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- EVENTS SECTION - SIMPLE & CLEAR HOVER -->
+<section class="events-section" id="events" style="background: #2C1A0E; padding: 120px 0;">
+    <div style="max-width: 1260px; margin: 0 auto; padding: 0 40px;">
+        <span class="section-label" style="color: #D4AF6E;">Gather With Us</span>
+        <h2 class="section-title" style="color: #F2EDE3; margin-bottom: 60px;">Company Updates &amp; Events</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            
+            <div style="background: #1F1309; border: 1px solid #B8964E; border-radius: 8px; padding: 50px 45px;">
+                <div style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.3em; color:#D4AF6E; margin-bottom:12px;">JUNE 15, 2026 — MUSKOKA, ON</div>
+                <h3 style="font-size:2.1rem; margin-bottom:20px; color:#F2EDE3;">Wild Brew Workshop</h3>
+                <p style="color:#C8B89A; line-height:1.85; margin-bottom:35px;">
+                    Hands-on coffee roasting and tasting session using foraged Canadian ingredients. Learn the art of blending spruce tips and birch syrup into your perfect brew. Limited seats available.
+                </p>
+                <a href="contact.html" style="display:inline-block; padding:16px 40px; border:2px solid #B8964E; color:#B8964E; font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.25em; text-decoration:none; font-weight:600; transition:all 0.4s ease;" onmouseover="this.style.background='#D4AF6E'; this.style.color='#1A0F08';" onmouseout="this.style.background='transparent'; this.style.color='#B8964E';">
+                    RESERVE YOUR SPOT
+                </a>
+            </div>
+
+            <div style="background: #1F1309; border: 1px solid #B8964E; border-radius: 8px; padding: 50px 45px;">
+                <div style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.3em; color:#D4AF6E; margin-bottom:12px;">JULY 12, 2026 — ALGONQUIN PARK</div>
+                <h3 style="font-size:2.1rem; margin-bottom:20px; color:#F2EDE3;">Forest to Cup Festival</h3>
+                <p style="color:#C8B89A; line-height:1.85; margin-bottom:35px;">
+                    Live music, local artisans, tree planting activity, and special wild-infused menu. Celebrate the land that inspires every roast — a full-day immersion in northern culture.
+                </p>
+                <a href="contact.html" style="display:inline-block; padding:16px 40px; border:2px solid #B8964E; color:#B8964E; font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.25em; text-decoration:none; font-weight:600; transition:all 0.4s ease;" onmouseover="this.style.background='#D4AF6E'; this.style.color='#1A0F08';" onmouseout="this.style.background='transparent'; this.style.color='#B8964E';">
+                    RESERVE YOUR SPOT
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- ══════════════ SECTION 3: PRODUCTS ══════════════ -->
+    <section class="products-section" id="menu">
+        <div class="products-inner">
+            <span class="section-label reveal">The Collection</span>
+            <h2 class="section-title reveal delay-1">Multi-Product Listing</h2>
+            <div class="product-grid">
+                <div class="product-card reveal delay-1">
+                    <div class="product-img-wrap">
+                        <img src="coffee.jpg" alt="Spruce Tip Latte">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">Signature Drink</div>
+                        <h4>Spruce Tip Latte</h4>
+                        <p>Espresso with steamed milk, hand-foraged spruce tips, and raw Canadian maple syrup — the taste of the boreal in a cup.</p>
+                        <div class="product-footer">
+                            <span class="product-price">CA$7.90</span>
+                            <a href="menu.html" class="product-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card reveal delay-2">
+                    <div class="product-img-wrap">
+                        <img src="bread.jpg" alt="Maple Butter Sourdough">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">Bakery</div>
+                        <h4>Maple Butter Sourdough</h4>
+                        <p>Slow-fermented sourdough baked daily, served warm with house-made maple compound butter and a dusting of birch sugar.</p>
+                        <div class="product-footer">
+                            <span class="product-price">CA$6.50</span>
+                            <a href="menu.html" class="product-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card reveal delay-3">
+                    <div class="product-img-wrap">
+                        <img src="salad.jpg" alt="Forest Greens Salad">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">Kitchen</div>
+                        <h4>Forest Greens Salad</h4>
+                        <p>Wild berries, fiddlehead ferns, and seasonal foraged greens tossed in a warm maple vinaigrette with toasted pumpkin seeds.</p>
+                        <div class="product-footer">
+                            <span class="product-price">CA$12.90</span>
+                            <a href="menu.html" class="product-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ PARALLAX QUOTE BANNER ══════════════ -->
+    <div class="parallax-banner">
+        <div class="parallax-banner-bg" id="parallaxBg"></div>
+        <div class="parallax-banner-overlay"></div>
+        <div class="parallax-content reveal">
+            <blockquote>
+                "Every sip carries the silence of old-growth forests, the warmth of a trail-side fire, the wild beauty of the north."
+            </blockquote>
+            <cite>— The Founders of Boreal &amp; Bean</cite>
+        </div>
+    </div>
+
+    <!-- ══════════════ SECTION 4: PURCHASING PROCESS ══════════════ -->
+    <section class="process-section" id="process">
+        <div class="process-inner">
+            <span class="section-label reveal">How It Works</span>
+            <h2 class="section-title reveal delay-1">Purchasing Process</h2>
+            <div class="process-steps">
+                <div class="process-step reveal delay-1">
+                    <div class="step-number">01</div>
+                    <div class="step-label">Browse</div>
+                    <div class="step-desc">Explore our wild-infused menu and signature collection</div>
+                </div>
+                <div class="process-step reveal delay-2">
+                    <div class="step-number">02</div>
+                    <div class="step-label">Select</div>
+                    <div class="step-desc">Add your favourite items to your cart</div>
+                </div>
+                <div class="process-step reveal delay-3">
+                    <div class="step-number">03</div>
+                    <div class="step-label">Review</div>
+                    <div class="step-desc">Confirm your sustainable order</div>
+                </div>
+                <div class="process-step reveal delay-4">
+                    <div class="step-number">04</div>
+                    <div class="step-label">Checkout</div>
+                    <div class="step-desc">Secure payment via Visa or Mastercard</div>
+                </div>
+                <div class="process-step reveal delay-5">
+                    <div class="step-number">05</div>
+                    <div class="step-label">Receive</div>
+                    <div class="step-desc">Eco-packaging with a tree planted in your name</div>
+                </div>
+            </div>
+            <div class="process-cta-wrap reveal">
+                <button class="btn-primary" onclick="window.location.href='menu.html'">Start Your Order</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ SECTION 5: FEEDBACK ══════════════ -->
+    <section class="feedback-section" id="feedback">
+        <div class="feedback-inner">
+            <span class="section-label reveal">Your Voice</span>
+            <h2 class="section-title reveal delay-1">Product Feedback</h2>
+            <div class="feedback-box reveal delay-2">
+                <form onsubmit="return false;">
+                    <div class="form-group">
+                        <label class="form-label">Which product did you try?</label>
+                        <select class="form-control">
+                            <option>Spruce Tip Latte</option>
+                            <option>Maple Butter Sourdough</option>
+                            <option>Forest Greens Salad</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Rate your experience</label>
+                        <div class="stars-wrap" id="stars">
+                            <span data-val="1" onclick="rate(1)">★</span>
+                            <span data-val="2" onclick="rate(2)">★</span>
+                            <span data-val="3" onclick="rate(3)">★</span>
+                            <span data-val="4" onclick="rate(4)">★</span>
+                            <span data-val="5" onclick="rate(5)">★</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your Feedback</label>
+                        <textarea class="form-control" placeholder="Tell us what you tasted, felt, remembered…"></textarea>
+                    </div>
+                    <button class="btn-primary" type="submit" style="width:100%;">Submit Feedback</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer>
+        <div class="footer-logo">BOREAL &amp; BEAN</div>
+        <div class="footer-tagline">Rooted in the North, Roasted for the Soul</div>
+        <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="menu.html" class="footer-link">Menu</a>
+            <a href="story.html" class="footer-link">Our Story</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+            <a href="checkout.html" class="footer-link">Checkout</a>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-copy">© 2026 Boreal &amp; Bean — Ontario, Canada &nbsp;|&nbsp; All rights reserved</p>
+    </footer>
+
+    <script>
+        /* ─── Custom Cursor ─── */
+        const dot  = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+
+        document.addEventListener('mousemove', e => {
+            mx = e.clientX; my = e.clientY;
+            dot.style.left  = mx + 'px';
+            dot.style.top   = my + 'px';
+        });
+
+        (function animateRing() {
+            rx += (mx - rx) * 0.14;
+            ry += (my - ry) * 0.14;
+            ring.style.left = rx + 'px';
+            ring.style.top  = ry + 'px';
+            requestAnimationFrame(animateRing);
+        })();
+
+        document.querySelectorAll('a, button, .product-card, .event-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                ring.style.width  = '60px';
+                ring.style.height = '60px';
+                ring.style.borderColor = 'var(--latte)';
+                dot.style.transform = 'translate(-50%,-50%) scale(2)';
+            });
+            el.addEventListener('mouseleave', () => {
+                ring.style.width  = '36px';
+                ring.style.height = '36px';
+                ring.style.borderColor = 'var(--gold)';
+                dot.style.transform = 'translate(-50%,-50%) scale(1)';
+            });
+        });
+
+        /* ─── Scroll Reveal ─── */
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealEls.forEach(el => observer.observe(el));
+
+        /* ─── Parallax Banner ─── */
+        const parallaxBg = document.getElementById('parallaxBg');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            const banner  = parallaxBg.parentElement;
+            const bannerTop = banner.getBoundingClientRect().top + scrollY;
+            const offset = (scrollY - bannerTop) * 0.35;
+            parallaxBg.style.transform = `translateY(${offset}px)`;
+        }, { passive: true });
+
+        /* ─── Star Rating ─── */
+        function rate(stars) {
+            document.querySelectorAll('.stars-wrap span').forEach((s, i) => {
+                s.classList.toggle('active', i < stars);
+            });
+        }
+
+        /* ─── Nav shrink on scroll ─── */
+        const nav = document.querySelector('.main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                nav.style.padding = '0';
+                nav.style.background = 'rgba(10,5,2,0.99)';
+            } else {
+                nav.style.background = 'rgba(26,15,8,0.97)';
+            }
+        }, { passive: true });
+
+        /* ─── Floating Leaves ─── */
+        const leafSymbols = ['🍂','🍁','🌿','✦','◦'];
+        function spawnLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.textContent = leafSymbols[Math.floor(Math.random() * leafSymbols.length)];
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.top  = '-30px';
+            leaf.style.fontSize = (0.7 + Math.random() * 0.8) + 'rem';
+            const dur = 12 + Math.random() * 12;
+            leaf.style.animationDuration = dur + 's';
+            leaf.style.animationDelay    = (Math.random() * 4) + 's';
+            document.body.appendChild(leaf);
+            setTimeout(() => leaf.remove(), (dur + 5) * 1000);
+        }
+        setInterval(spawnLeaf, 3200);
+
+        /* ─── Section counter animation ─── */
+        function animateNumbers() {
+            document.querySelectorAll('[data-count]').forEach(el => {
+                const target = +el.dataset.count;
+                let current = 0;
+                const step = target / 60;
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) { current = target; clearInterval(timer); }
+                    el.textContent = Math.floor(current);
+                }, 20);
+            });
+        }
+    </script>
+</body>
+</html>

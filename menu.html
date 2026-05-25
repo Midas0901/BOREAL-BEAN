@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu — Boreal & Bean</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --coffee:      #1A0F08;
+            --espresso:    #2C1A0E;
+            --bark:        #3D2314;
+            --moss:        #4A5240;
+            --fern:        #6B7A5A;
+            --latte:       #C8A97A;
+            --cream:       #F2EDE3;
+            --parchment:   #EDE5D4;
+            --gold:        #B8964E;
+            --gold-light:  #D4AF6E;
+            --fog:         #D0C9BC;
+            --white:       #FAF8F4;
+            --text-dark:   #1A0F08;
+            --text-mid:    #4A3728;
+            --text-soft:   #7A6655;
+            
+            --ease-silk: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.9;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-ring {
+            position: fixed; top: 0; left: 0;
+            pointer-events: none; z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+        .cursor-dot {
+            width: 8px; height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+        .cursor-ring {
+            width: 36px; height: 36px;
+            border: 1.5px solid var(--gold);
+            border-radius: 50%;
+            opacity: 0.7;
+            transition: transform 0.18s var(--ease-silk), width 0.3s, height 0.3s, border-color 0.3s;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.06em; }
+        h4, h5 { font-family: 'Cormorant Garamond', serif; }
+
+        /* Navigation */
+        .main-nav {
+            background: rgba(26, 15, 8, 0.97);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184, 150, 78, 0.2);
+        }
+        .nav-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: var(--gold-light);
+            text-decoration: none;
+            padding: 20px 0;
+        }
+        .nav-link {
+            color: rgba(242, 237, 227, 0.75);
+            padding: 22px 22px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.28em;
+            transition: all 0.35s var(--ease-silk);
+        }
+        .nav-link:hover { color: var(--gold-light); }
+        .nav-link.nav-checkout {
+            background: var(--gold);
+            color: var(--coffee);
+            padding: 10px 24px;
+            margin-left: 16px;
+            font-weight: 600;
+        }
+
+        /* Mini Header */
+        .mini-header {
+            height: 480px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+        .mini-header video {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(0.45) saturate(0.7);
+        }
+        .mini-header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(10,5,2,0.3), rgba(26,15,8,0.75));
+        }
+        .mini-header-content h1 {
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 900;
+            letter-spacing: 0.12em;
+        }
+
+        /* Section */
+        .section {
+            max-width: 1260px;
+            margin: 110px auto;
+            padding: 0 40px;
+        }
+        .section-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.5em;
+            color: var(--gold);
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+            margin-bottom: 18px;
+        }
+        h2.section-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            color: var(--espresso);
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px; height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 25px auto;
+        }
+
+        /* Product Grid - FIXED ALIGNMENT */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+        }
+        .product-card {
+            background: var(--white);
+            overflow: hidden;
+            transition: all 0.6s var(--ease-silk);
+            box-shadow: 0 15px 40px rgba(26,15,8,0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-14px);
+            box-shadow: 0 40px 80px rgba(26,15,8,0.18);
+        }
+        .product-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform 0.9s var(--ease-silk);
+        }
+        .product-card:hover img {
+            transform: scale(1.08);
+        }
+        .product-body {
+            padding: 32px 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-category {
+            font-family: 'Cinzel', serif;
+            font-size: 0.58rem;
+            letter-spacing: 0.4em;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+        .product-body h3 {
+            font-size: 1.65rem;
+            color: var(--espresso);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .product-body p {
+            color: var(--text-soft);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        .product-price {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--espresso);
+            margin-bottom: 18px;
+        }
+        .add-to-cart {
+            width: 100%;
+            background: var(--gold);
+            color: var(--coffee);
+            border: none;
+            padding: 16px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            cursor: pointer;
+            margin-top: auto;           /* This pushes button to bottom */
+            transition: all 0.4s var(--ease-silk);
+        }
+        .add-to-cart:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--coffee);
+            color: rgba(242,237,227,0.6);
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Mini Header -->
+    <div class="mini-header">
+        <video autoplay loop muted playsinline>
+            <source src="coffeefarm.mp4" type="video/mp4">
+        </video>
+        <div class="mini-header-overlay"></div>
+        <div class="mini-header-content">
+            <div>
+                <h1>BOREAL &amp; BEAN</h1>
+                <p style="margin-top:12px; font-size:1.1rem; opacity:0.9; font-style:italic;">
+                    Rooted in the North, Roasted for the Soul
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">B &amp; B</a>
+            <div>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="story.html" class="nav-link">Our Story</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="checkout.html" class="nav-link nav-checkout">Checkout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Section -->
+    <div class="section">
+        <span class="section-label reveal">The Collection</span>
+        <h2 class="section-title reveal">Our Wild-Infused Menu</h2>
+        
+        <div class="product-grid">
+            <div class="product-card reveal">
+                <img src="coffee.jpg" alt="Spruce Tip Latte">
+                <div class="product-body">
+                    <div class="product-category">Signature Drink</div>
+                    <h3>Spruce Tip Latte</h3>
+                    <p>Espresso with steamed milk, hand-foraged spruce tips, and raw Canadian maple syrup — the taste of the boreal in a cup.</p>
+                    <div class="product-price">CA$7.90</div>
+                    <button class="add-to-cart" onclick="addToCart('Spruce Tip Latte', 7.90)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card reveal delay-1">
+                <img src="bread.jpg" alt="Maple Butter Sourdough">
+                <div class="product-body">
+                    <div class="product-category">Bakery</div>
+                    <h3>Maple Butter Sourdough</h3>
+                    <p>Slow-fermented sourdough baked daily, served warm with house-made maple compound butter and a dusting of birch sugar.</p>
+                    <div class="product-price">CA$6.50</div>
+                    <button class="add-to-cart" onclick="addToCart('Maple Butter Sourdough', 6.50)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card reveal delay-2">
+                <img src="salad.jpg" alt="Forest Greens Salad">
+                <div class="product-body">
+                    <div class="product-category">Kitchen</div>
+                    <h3>Forest Greens Salad</h3>
+                    <p>Wild berries, fiddlehead ferns, and seasonal foraged greens tossed in a warm maple vinaigrette with toasted pumpkin seeds.</p>
+                    <div class="product-price">CA$12.90</div>
+                    <button class="add-to-cart" onclick="addToCart('Forest Greens Salad', 12.90)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Boreal &amp; Bean — Ontario, Canada</p>
+    </footer>
+
+    <script>
+        /* Custom Cursor */
+        const dot = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+
+        document.addEventListener('mousemove', e => {
+            mx = e.clientX; my = e.clientY;
+            dot.style.left = mx + 'px';
+            dot.style.top = my + 'px';
+        });
+
+        function animateRing() {
+            rx += (mx - rx) * 0.14;
+            ry += (my - ry) * 0.14;
+            ring.style.left = rx + 'px';
+            ring.style.top = ry + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        /* Hover Effects */
+        document.querySelectorAll('a, button, .product-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                ring.style.width = '50px';
+                ring.style.height = '50px';
+                ring.style.borderColor = 'var(--latte)';
+                dot.style.transform = 'translate(-50%,-50%) scale(2)';
+            });
+            el.addEventListener('mouseleave', () => {
+                ring.style.width = '36px';
+                ring.style.height = '36px';
+                ring.style.borderColor = 'var(--gold)';
+                dot.style.transform = 'translate(-50%,-50%) scale(1)';
+            });
+        });
+
+        /* Scroll Reveal */
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        reveals.forEach(el => observer.observe(el));
+
+        /* Add to Cart */
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({name, price, qty: 1});
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`✅ Added to cart: ${name}`);
+        }
+    </script>
+</body>
+</html>

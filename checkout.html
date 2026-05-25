@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — Boreal & Bean</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --coffee:      #1A0F08;
+            --espresso:    #2C1A0E;
+            --bark:        #3D2314;
+            --moss:        #4A5240;
+            --fern:        #6B7A5A;
+            --latte:       #C8A97A;
+            --cream:       #F2EDE3;
+            --parchment:   #EDE5D4;
+            --gold:        #B8964E;
+            --gold-light:  #D4AF6E;
+            --fog:         #D0C9BC;
+            --white:       #FAF8F4;
+            --text-dark:   #1A0F08;
+            --text-mid:    #4A3728;
+            --text-soft:   #7A6655;
+            --red:         #B44A4A;
+            
+            --ease-silk: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.95;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-ring {
+            position: fixed; top: 0; left: 0;
+            pointer-events: none; z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+        .cursor-dot {
+            width: 8px; height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+        .cursor-ring {
+            width: 36px; height: 36px;
+            border: 1.5px solid var(--gold);
+            border-radius: 50%;
+            opacity: 0.7;
+            transition: transform 0.18s var(--ease-silk), width 0.3s, height 0.3s, border-color 0.3s;
+        }
+
+        /* Typography */
+        h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 0.06em; }
+
+        /* Navigation */
+        .main-nav {
+            background: rgba(26, 15, 8, 0.97);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184, 150, 78, 0.2);
+        }
+        .nav-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: var(--gold-light);
+            text-decoration: none;
+            padding: 20px 0;
+        }
+        .nav-link {
+            color: rgba(242, 237, 227, 0.75);
+            padding: 22px 22px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.28em;
+            transition: all 0.35s var(--ease-silk);
+        }
+        .nav-link:hover { color: var(--gold-light); }
+        .nav-link.nav-checkout {
+            background: var(--gold);
+            color: var(--coffee);
+            padding: 10px 24px;
+            margin-left: 16px;
+            font-weight: 600;
+        }
+
+        /* Mini Header */
+        .mini-header {
+            height: 420px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+        .mini-header video {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(0.45) saturate(0.7);
+        }
+        .mini-header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(10,5,2,0.4), rgba(26,15,8,0.8));
+        }
+        .mini-header-content h1 {
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 900;
+            letter-spacing: 0.12em;
+        }
+
+        /* Section */
+        .section {
+            max-width: 1260px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+        .section-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.5em;
+            color: var(--gold);
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+            margin-bottom: 18px;
+        }
+        h2.section-title {
+            font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+            color: var(--espresso);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px; height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 25px auto;
+        }
+
+        /* Checkout Layout */
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cart-box {
+            background: #EDE5D4;
+            border: 1px solid #D4C9B0;
+            border-radius: 12px;
+            padding: 50px;
+        }
+        .form-box {
+            background: var(--white);
+            border: 1px solid #D4C9B0;
+            border-radius: 12px;
+            padding: 50px;
+        }
+        .cart-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--fog);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .remove-btn {
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .remove-btn:hover {
+            background: #9c3c3c;
+            transform: scale(1.05);
+        }
+        .total {
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--bark);
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gold);
+        }
+        .submit-btn {
+            width: 100%;
+            background: var(--gold);
+            color: var(--coffee);
+            border: none;
+            padding: 18px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.25em;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.4s var(--ease-silk);
+        }
+        .submit-btn:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+        }
+        input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid var(--fog);
+            background: var(--cream);
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Mini Header -->
+    <div class="mini-header">
+        <video autoplay loop muted playsinline>
+            <source src="coffeefarm.mp4" type="video/mp4">
+        </video>
+        <div class="mini-header-overlay"></div>
+        <div class="mini-header-content">
+            <div>
+                <h1>CHECKOUT</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">B &amp; B</a>
+            <div>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="story.html" class="nav-link">Our Story</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="checkout.html" class="nav-link nav-checkout">Checkout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <div class="section">
+        <span class="section-label reveal">Secure Checkout</span>
+        <h2 class="section-title reveal">Complete Your Order</h2>
+        
+        <div class="checkout-grid">
+            <!-- Cart Summary -->
+            <div class="cart-box reveal">
+                <h3>Your Cart</h3>
+                <div id="cart-items"></div>
+                <div class="total" id="total">Total: CA$0.00</div>
+            </div>
+
+            <!-- Payment Form -->
+            <div class="form-box reveal">
+                <h3>Payment Information</h3>
+                <form onsubmit="handlePayment(event)">
+                    <input type="text" placeholder="Card Number" maxlength="19" required>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <input type="text" placeholder="MM / YY" maxlength="5" required>
+                        <input type="text" placeholder="CVC" maxlength="4" required>
+                    </div>
+                    <input type="text" placeholder="Cardholder Name" required>
+                    
+                    <button type="submit" class="submit-btn">Pay Securely — Complete Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Boreal &amp; Bean — Ontario, Canada • Rooted in the North, Roasted for the Soul</p>
+    </footer>
+
+    <script>
+        /* Custom Cursor */
+        const dot = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+
+        document.addEventListener('mousemove', e => {
+            mx = e.clientX; my = e.clientY;
+            dot.style.left = mx + 'px';
+            dot.style.top = my + 'px';
+        });
+
+        function animateRing() {
+            rx += (mx - rx) * 0.14;
+            ry += (my - ry) * 0.14;
+            ring.style.left = rx + 'px';
+            ring.style.top = ry + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        /* Load and Render Cart */
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemsDiv = document.getElementById('cart-items');
+            let total = 0;
+
+            itemsDiv.innerHTML = '';
+
+            if (cart.length === 0) {
+                itemsDiv.innerHTML = '<p style="color: var(--text-soft); font-style: italic; padding: 20px 0;">Your cart is empty.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const qty = item.qty || 1;
+                    const itemTotal = item.price * qty;
+                    total += itemTotal;
+
+                    itemsDiv.innerHTML += `
+                        <div class="cart-item">
+                            <span>${item.name} × ${qty}</span>
+                            <span style="display:flex; align-items:center; gap:12px;">
+                                CA$${itemTotal.toFixed(2)}
+                                <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                            </span>
+                        </div>
+                    `;
+                });
+            }
+
+            document.getElementById('total').textContent = `Total: CA$${total.toFixed(2)}`;
+        }
+
+        /* Remove Item */
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        /* Handle Payment */
+        function handlePayment(e) {
+            e.preventDefault();
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            alert("🎉 Thank you for your order at Boreal & Bean! Your trees have been planted. 🌲☕");
+            localStorage.removeItem('cart');
+            setTimeout(() => window.location.href = "index.html", 1800);
+        }
+
+        /* Initialize */
+        window.onload = loadCart;
+
+        /* Hover Effects */
+        document.querySelectorAll('a, button, input').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                ring.style.width = '50px';
+                ring.style.height = '50px';
+                ring.style.borderColor = 'var(--latte)';
+                dot.style.transform = 'translate(-50%,-50%) scale(2)';
+            });
+            el.addEventListener('mouseleave', () => {
+                ring.style.width = '36px';
+                ring.style.height = '36px';
+                ring.style.borderColor = 'var(--gold)';
+                dot.style.transform = 'translate(-50%,-50%) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
