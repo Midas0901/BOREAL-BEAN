@@ -1,0 +1,62 @@
+﻿Brand Direction
+
+
+Boreal & Bean
+
+
+
+
+Brand Identity
+
+
+* Boreal & Bean is a Canadian-inspired specialty coffee brand focused on wilderness, sustainability, and premium café experiences. The brand combines warm café culture with the peaceful atmosphere of Canadian forests and natural environments.
+* The goal of the brand is to create a calm, authentic, and memorable coffee experience that feels both modern and connected to nature.
+
+
+
+
+Target Audience
+
+
+* The website is designed for customers who enjoy specialty coffee, relaxing café environments, and sustainable lifestyles. The brand especially targets younger customers and coffee enthusiasts who value quality, atmosphere, and eco-friendly practices.
+
+
+
+
+Typography
+
+
+* We selected Playfair Display for headings, titles, and important sections because it creates a premium and elegant atmosphere that matches the Boreal & Bean identity. The serif style gives the brand a sophisticated and timeless feeling similar to high-quality cafes.
+* We used Lora for body text and paragraphs because it improves readability while maintaining a warm and natural appearance. The font feels softer and more comfortable to read for longer sections of text.
+
+
+
+
+Colour Palette
+
+
+* The website uses a natural and warm color palette inspired by forests, coffee, wood textures, and Canadian wilderness.
+* Deep Coffee Brown (#2C1F16) is used for headers, navigation, and footer sections to represent coffee beans, wood, and warmth.
+* Warm Cream (#F5F0E8) is used as the primary background color to create a clean, soft, and cozy atmosphere that avoids harsh contrast.
+* Warm Gold (#C9A66B) is used for buttons, hover effects, and highlights in order to guide user attention and create a premium feeling inspired by maple syrup and sunlight.
+* Forest Green tones are used throughout imagery and visual elements to strengthen the connection to nature and wilderness.
+
+
+
+
+Art Direction
+
+
+* The visual direction of the website focuses on warm lighting, natural textures, steam from coffee, wood surfaces, forests, lakes, and soft shadows.
+* We selected imagery that feels authentic and calm instead of overly commercial or artificial. Product images use close-up photography to create a more personal and immersive café experience.
+* The combination of forest imagery and coffee photography helps communicate the idea of “Canadian wilderness meets specialty coffee culture.”
+
+
+
+
+Application in the Website
+
+
+* Typography hierarchy is used to clearly separate headings, navigation, and body text for readability and visual consistency.
+* The color palette is applied consistently throughout the website to create strong brand recognition and improve user experience. Gold accent colors are specifically used for buttons and interactions to guide user attention.
+* Imagery is used to support storytelling and reinforce the identity of Boreal & Bean as a warm, premium, and nature-connected coffee brand.

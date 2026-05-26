@@ -1,0 +1,22 @@
+﻿Process Document
+
+
+Week 1: Brand Concept
+
+
+In the first week, it was difficult to communicate with our group so the progress was slower than expected. We developed the Boreal & Bean brand identity inspired by Canadian forests, sustainable coffee culture, and wilderness aesthetics. We also planned the website structure and semantic HTML elements required for the style guide. During this stage, we explored warm and natural color themes such as forest green, cream, coffee brown, and soft gold in order to create a calm and premium café atmosphere connected to the Boreal & Bean identity.
+We explored typography choices that matched the atmosphere of a premium coffee shop website. We selected Cinzel for headings and logo text because it creates an elegant and classic feeling. We used Cormorant Garamond for quotes and decorative text to create a warm storytelling atmosphere, and Crimson Pro for paragraph text because it is readable while still fitting the natural and vintage-inspired aesthetic of the brand.
+
+
+Week 2: Website Structure and Styling
+
+
+In the second week, we focused on building the overall website structure and user flow between pages. We created the main layouts for the homepage, menu page, story page, checkout page, and contact page. We also applied CSS styling, typography hierarchy, and hover interactions to improve the visual consistency of the site. At this stage, we experienced some difficulties implementing smaller interactive features and organizing page relationships.
+
+
+
+
+Week 3: Final Refinement and User Interaction
+
+
+In the final week, we focused on improving the overall quality and polish of the website. We refined the visual design and developed more complete interactive pages. Finally, we connected the pages together more effectively, improved responsiveness and usability, and completed a more polished and professional final website.
