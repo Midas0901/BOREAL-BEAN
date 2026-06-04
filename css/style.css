@@ -1,0 +1,214 @@
+:root {
+    --coffee: #1A0F08;
+    --espresso: #2C1A0E;
+    --gold: #B8964E;
+    --gold-light: #D4AF6E;
+    --cream: #F2EDE3;
+    --white: #FAF8F4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--cream);
+    color: var(--coffee);
+    line-height: 1.85;
+}
+
+header {
+    background: var(--espresso);
+    color: white;
+    text-align: center;
+    padding: 130px 20px 90px;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(3.2rem, 8vw, 5.8rem);
+    letter-spacing: 0.08em;
+}
+
+header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.55rem;
+}
+
+/* Navigation */
+.main-nav {
+    background: var(--coffee);
+    padding: 20px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-link {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.12em;
+}
+
+.nav-link:hover { color: var(--gold-light); }
+
+/* Sections */
+.section {
+    max-width: 1180px;
+    margin: 90px auto;
+    padding: 0 40px;
+}
+
+.section h2 {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 45px;
+    color: var(--espresso);
+}
+
+/* About */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-image-wrap img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.about-text blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.7rem;
+    line-height: 1.5;
+    color: var(--espresso);
+    border-left: 4px solid var(--gold);
+    padding-left: 28px;
+    margin-bottom: 30px;
+}
+
+.about-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.badge {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+/* Products & Events */
+.events-grid, .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.event-card, .product-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+}
+
+.event-card:hover, .product-card:hover {
+    transform: translateY(-12px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Story Images - Smaller & Centered */
+.story-image {
+    max-width: 85%;
+    height: auto;
+    border-radius: 12px;
+    margin: 30px auto;
+    display: block;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Buttons */
+.primary-button, .event-btn {
+    background: var(--gold);
+    color: var(--coffee);
+    padding: 14px 36px;
+    border: none;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    transition: all 0.3s;
+}
+
+.primary-button:hover, .event-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+/* Payment & Feedback */
+.demo-box {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    font-family: inherit;
+}
+
+.stars {
+    font-size: 2.8rem;
+    color: #ddd;
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+.stars span:hover,
+.stars span.active {
+    color: var(--gold);
+}
+
+/* Footer */
+.site-footer {
+    background: var(--coffee);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .section { padding: 0 20px; margin: 60px auto; }
+    .story-image { max-width: 95%; }
+}
