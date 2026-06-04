@@ -1,14 +1,17 @@
 :root {
-    --coffee:      #1A0F08;
-    --espresso:    #2C1A0E;
-    --gold:        #B8964E;
-    --gold-light:  #D4AF6E;
-    --cream:       #F2EDE3;
-    --text-dark:   #1A0F08;
-    --text-soft:   #7A6655;
+    --coffee: #1A0F08;
+    --espresso: #2C1A0E;
+    --gold: #B8964E;
+    --gold-light: #D4AF6E;
+    --cream: #F2EDE3;
+    --text-dark: #1A0F08;
 }
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
 body {
     font-family: 'Crimson Pro', Georgia, serif;
@@ -23,7 +26,6 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 .nav-inner {
     max-width: 1300px;
@@ -40,25 +42,16 @@ body {
     letter-spacing: 0.2em;
     color: var(--gold-light);
     text-decoration: none;
-    padding: 18px 0;
 }
 .nav-link {
     color: rgba(242, 237, 227, 0.8);
     padding: 20px 18px;
     text-decoration: none;
     font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 0.25em;
 }
 .nav-link:hover { color: var(--gold-light); }
-.nav-link.nav-checkout {
-    background: var(--gold);
-    color: var(--coffee);
-    padding: 10px 24px;
-    margin-left: 10px;
-    font-weight: 600;
-    border-radius: 4px;
-}
 
 /* Section */
 .section {
@@ -75,23 +68,23 @@ body {
     text-align: center;
     margin-bottom: 12px;
 }
-h2.section-title {
+.section-title {
     font-family: 'Cinzel', serif;
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-size: 3rem;
     color: var(--espresso);
     text-align: center;
     margin-bottom: 40px;
 }
 
-/* Category Tabs */
-.category-tabs {
+/* Top Buttons */
+.top-buttons {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 15px;
     margin-bottom: 50px;
     flex-wrap: wrap;
 }
-.tab-btn {
+.top-btn {
     padding: 12px 32px;
     background: white;
     border: 2px solid var(--gold);
@@ -100,14 +93,9 @@ h2.section-title {
     font-size: 0.95rem;
     letter-spacing: 0.08em;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
-.tab-btn.active {
-    background: var(--gold);
-    color: var(--coffee);
-    border-color: var(--gold);
-}
-.tab-btn:hover:not(.active) {
+.top-btn:hover {
     background: #f5e8d0;
 }
 
@@ -121,48 +109,40 @@ h2.section-title {
     background: white;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(26,15,8,0.08);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 .product-card img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
 }
 .product-body {
-    padding: 0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    padding: 20px;
 }
 .product-category {
     font-family: 'Cinzel', serif;
     font-size: 0.58rem;
     letter-spacing: 0.35em;
     color: var(--gold);
-    padding: 14px 20px 6px;
     text-transform: uppercase;
+    margin-bottom: 8px;
 }
 .product-body h3 {
     font-size: 1.45rem;
     color: var(--espresso);
-    padding: 0 20px 8px;
-    line-height: 1.2;
+    margin-bottom: 8px;
 }
 .product-body p {
     font-size: 0.95rem;
-    color: var(--text-soft);
-    padding: 0 20px 16px;
-    line-height: 1.7;
-    flex: 1;
+    color: #7A6655;
+    margin-bottom: 16px;
+    line-height: 1.6;
 }
 .product-price {
     font-family: 'Cinzel', serif;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--espresso);
-    padding: 0 20px 18px;
+    margin-bottom: 18px;
 }
 .add-to-cart {
     width: 100%;
@@ -171,10 +151,9 @@ h2.section-title {
     border: none;
     padding: 16px;
     font-family: 'Cinzel', serif;
-    font-size: 0.73rem;
+    font-size: 0.75rem;
     letter-spacing: 0.25em;
     cursor: pointer;
-    margin-top: auto;
     transition: all 0.4s ease;
 }
 .add-to-cart:hover {
@@ -190,7 +169,3 @@ footer {
     padding: 50px 20px 30px;
     margin-top: 80px;
 }
-
-/* Hide inactive categories */
-.category-section { display: none; }
-.category-section.active { display: block; }
