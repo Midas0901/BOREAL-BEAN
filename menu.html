@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu — Boreal & Bean</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="menu.css">
 </head>
 <body>
 
@@ -28,32 +28,121 @@
         <span class="section-label">The Collection</span>
         <h2 class="section-title">Our Wild-Infused Menu</h2>
 
-        <!-- Category Tabs -->
-        <div class="category-tabs">
-            <button class="tab-btn active" data-category="all">All</button>
-            <button class="tab-btn" data-category="food">Food</button>
-            <button class="tab-btn" data-category="drink">Drink</button>
-            <button class="tab-btn" data-category="snack">Snack</button>
+        <!-- 4 Buttons on Top (No Function) -->
+        <div class="top-buttons">
+            <button class="top-btn">All</button>
+            <button class="top-btn">Drink</button>
+            <button class="top-btn">Food</button>
+            <button class="top-btn">Snack</button>
         </div>
 
-        <!-- All Products -->
-        <div id="category-all" class="category-section active">
-            <div class="product-grid" id="all-grid"></div>
-        </div>
+        <!-- 10 Product Cards -->
+        <div class="product-grid">
+            <!-- Drink -->
+            <div class="product-card">
+                <img src="coffee.jpg" alt="Spruce Tip Latte">
+                <div class="product-body">
+                    <div class="product-category">drink</div>
+                    <h3>Spruce Tip Latte</h3>
+                    <p>Espresso, steamed milk, foraged spruce tips and maple syrup.</p>
+                    <div class="product-price">CA$7.90</div>
+                    <button class="add-to-cart" onclick="addToBox('Spruce Tip Latte', 7.90)">Add to Box</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="coffee.jpg" alt="Spruce Tip Latte">
+                <div class="product-body">
+                    <div class="product-category">drink</div>
+                    <h3>Spruce Tip Latte</h3>
+                    <p>Espresso, steamed milk, foraged spruce tips and maple syrup.</p>
+                    <div class="product-price">CA$7.90</div>
+                    <button class="add-to-cart" onclick="addToBox('Spruce Tip Latte', 7.90)">Add to Box</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="coffee.jpg" alt="Spruce Tip Latte">
+                <div class="product-body">
+                    <div class="product-category">drink</div>
+                    <h3>Spruce Tip Latte</h3>
+                    <p>Espresso, steamed milk, foraged spruce tips and maple syrup.</p>
+                    <div class="product-price">CA$7.90</div>
+                    <button class="add-to-cart" onclick="addToBox('Spruce Tip Latte', 7.90)">Add to Box</button>
+                </div>
+            </div>
 
-        <!-- Drink Products -->
-        <div id="category-drink" class="category-section">
-            <div class="product-grid" id="drink-grid"></div>
-        </div>
+            <!-- Food -->
+            <div class="product-card">
+                <img src="bread.jpg" alt="Maple Butter Sourdough">
+                <div class="product-body">
+                    <div class="product-category">food</div>
+                    <h3>Maple Butter Sourdough</h3>
+                    <p>Warm sourdough with house-made maple butter.</p>
+                    <div class="product-price">CA$6.50</div>
+                    <button class="add-to-cart" onclick="addToBox('Maple Butter Sourdough', 6.50)">Add to Box</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="bread.jpg" alt="Maple Butter Sourdough">
+                <div class="product-body">
+                    <div class="product-category">food</div>
+                    <h3>Maple Butter Sourdough</h3>
+                    <p>Warm sourdough with house-made maple butter.</p>
+                    <div class="product-price">CA$6.50</div>
+                    <button class="add-to-cart" onclick="addToBox('Maple Butter Sourdough', 6.50)">Add to Box</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="bread.jpg" alt="Maple Butter Sourdough">
+                <div class="product-body">
+                    <div class="product-category">food</div>
+                    <h3>Maple Butter Sourdough</h3>
+                    <p>Warm sourdough with house-made maple butter.</p>
+                    <div class="product-price">CA$6.50</div>
+                    <button class="add-to-cart" onclick="addToBox('Maple Butter Sourdough', 6.50)">Add to Box</button>
+                </div>
+            </div>
 
-        <!-- Food Products -->
-        <div id="category-food" class="category-section">
-            <div class="product-grid" id="food-grid"></div>
-        </div>
-
-        <!-- Snack Products -->
-        <div id="category-snack" class="category-section">
-            <div class="product-grid" id="snack-grid"></div>
+            <!-- Snack -->
+            <div class="product-card">
+                <img src="salad.jpg" alt="Forest Greens Salad">
+                <div class="product-body">
+                    <div class="product-category">snack</div>
+                    <h3>Forest Greens Salad</h3>
+                    <p>Wild berries, fiddleheads in maple vinaigrette.</p>
+                    <div class="product-price">CA$12.90</div>
+                    <button class="add-to-cart" onclick="addToBox('Forest Greens Salad', 12.90)">Add to Box</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="salad.jpg" alt="Forest Greens Salad">
+                <div class="product-body">
+                    <div class="product-category">snack</div>
+                    <h3>Forest Greens Salad</h3>
+                    <p>Wild berries, fiddleheads in maple vinaigrette.</p>
+                    <div class="product-price">CA$12.90</div>
+                    <button class="add-to-cart" onclick="addToBox('Forest Greens Salad', 12.90)">Add to Box</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="salad.jpg" alt="Forest Greens Salad">
+                <div class="product-body">
+                    <div class="product-category">snack</div>
+                    <h3>Forest Greens Salad</h3>
+                    <p>Wild berries, fiddleheads in maple vinaigrette.</p>
+                    <div class="product-price">CA$12.90</div>
+                    <button class="add-to-cart" onclick="addToBox('Forest Greens Salad', 12.90)">Add to Box</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="salad.jpg" alt="Forest Greens Salad">
+                <div class="product-body">
+                    <div class="product-category">snack</div>
+                    <h3>Forest Greens Salad</h3>
+                    <p>Wild berries, fiddleheads in maple vinaigrette.</p>
+                    <div class="product-price">CA$12.90</div>
+                    <button class="add-to-cart" onclick="addToBox('Forest Greens Salad', 12.90)">Add to Box</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -63,88 +152,6 @@
     </footer>
 
     <script>
-        const products = [
-            // === DRINKS
-            {name: "Spruce Tip Latte", price: 7.90, category: "drink", img: "image/coffee.jpg", desc: "Espresso, steamed milk, foraged spruce tips and maple syrup."},
-            {name: "Spruce Tip Latte", price: 7.90, category: "drink", img: "image/coffee.jpg", desc: "Espresso, steamed milk, foraged spruce tips and maple syrup."},
-            {name: "Spruce Tip Latte", price: 7.90, category: "drink", img: "image/coffee.jpg", desc: "Espresso, steamed milk, foraged spruce tips and maple syrup."},
-            {name: "Spruce Tip Latte", price: 7.90, category: "drink", img: "image/coffee.jpg", desc: "Espresso, steamed milk, foraged spruce tips and maple syrup."},
-            {name: "Spruce Tip Latte", price: 7.90, category: "drink", img: "image/coffee.jpg", desc: "Espresso, steamed milk, foraged spruce tips and maple syrup."},
-            // FOOD 
-            {name: "Maple Butter Sourdough", price: 6.50, category: "food", img: "image/bread.jpg", desc: "Warm sourdough with house-made maple butter."},
-            {name: "Maple Butter Sourdough", price: 6.50, category: "food", img: "image/bread.jpg", desc: "Warm sourdough with house-made maple butter."},
-            {name: "Maple Butter Sourdough", price: 6.50, category: "food", img: "image/bread.jpg", desc: "Warm sourdough with house-made maple butter."},
-            {name: "Maple Butter Sourdough", price: 6.50, category: "food", img: "image/bread.jpg", desc: "Warm sourdough with house-made maple butter."},
-            {name: "Maple Butter Sourdough", price: 6.50, category: "food", img: "image/bread.jpg", desc: "Warm sourdough with house-made maple butter."},
-            // === SNACKS
-            {name: "Forest Greens Salad", price: 12.90, category: "snack", img: "image/salad.jpg", desc: "Wild berries, fiddleheads in maple vinaigrette."},
-            {name: "Forest Greens Salad", price: 12.90, category: "snack", img: "image/salad.jpg", desc: "Wild berries, fiddleheads in maple vinaigrette."},
-            {name: "Forest Greens Salad", price: 12.90, category: "snack", img: "image/salad.jpg", desc: "Wild berries, fiddleheads in maple vinaigrette."},
-            {name: "Forest Greens Salad", price: 12.90, category: "snack", img: "image/salad.jpg", desc: "Wild berries, fiddleheads in maple vinaigrette."},
-            {name: "Forest Greens Salad", price: 12.90, category: "snack", img: "image/salad.jpg", desc: "Wild berries, fiddleheads in maple vinaigrette."},
-        ];
-
-        function createProductCard(product) {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.innerHTML = `
-                <img src="${product.img}" alt="${product.name}">
-                <div class="product-body">
-                    <div class="product-category">${product.category}</div>
-                    <h3>${product.name}</h3>
-                    <p>${product.desc}</p>
-                    <div class="product-price">CA$${product.price.toFixed(2)}</div>
-                    <button class="add-to-cart" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
-                </div>
-            `;
-            return card;
-        }
-
-        function renderProducts() {
-            const allGrid = document.getElementById('all-grid');
-            const drinkGrid = document.getElementById('drink-grid');
-            const foodGrid = document.getElementById('food-grid');
-            const snackGrid = document.getElementById('snack-grid');
-
-            allGrid.innerHTML = '';
-            drinkGrid.innerHTML = '';
-            foodGrid.innerHTML = '';
-            snackGrid.innerHTML = '';
-
-            products.forEach(product => {
-                const card = createProductCard(product);
-                allGrid.appendChild(card.cloneNode(true));
-
-                if (product.category === 'drink') drinkGrid.appendChild(card.cloneNode(true));
-                if (product.category === 'food') foodGrid.appendChild(card.cloneNode(true));
-                if (product.category === 'snack') snackGrid.appendChild(card.cloneNode(true));
-            });
-        }
-
-        // Tab functionality
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                document.querySelectorAll('.category-section').forEach(section => {
-                    section.classList.remove('active');
-                });
-
-                const category = btn.getAttribute('data-category');
-                document.getElementById(`category-${category}`).classList.add('active');
-            });
-        });
-
-        function addToCart(name, price) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push({name, price, qty: 1});
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`✅ Added to cart: ${name}`);
-        }
-
-        // Initialize
-        renderProducts();
     </script>
 </body>
 </html>
