@@ -1,3 +1,86 @@
+:root {
+    --coffee: #1A0F08;
+    --espresso: #2C1A0E;
+    --gold: #B8964E;
+    --gold-light: #D4AF6E;
+    --cream: #F2EDE3;
+    --parchment: #EDE5D4;
+    --text-dark: #1A0F08;
+    --text-soft: #7A6655;
+    --fog: #D0C9BC;
+    --white: #FAF8F4;
+
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background-color: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation */
+.main-nav {
+    background: rgba(26, 15, 8, 0.98);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.nav-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    color: var(--gold-light);
+    text-decoration: none;
+    padding: 18px 0;
+}
+
+.nav-link {
+    color: rgba(242, 237, 227, 0.8);
+    padding: 20px 18px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+}
+
+.nav-link:hover {
+    color: var(--gold-light);
+}
+
+.nav-link.nav-checkout {
+    background: var(--gold);
+    color: var(--coffee);
+    padding: 10px 24px;
+    margin-left: 10px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+
+/* main content */
+
 .updates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -26,3 +109,50 @@
 .update-card p {
     color: var(--text-mid);
 }
+
+/* copied from style.css */
+
+.section {
+    max-width: 1180px;
+    margin: 90px auto;
+    padding: 0 40px;
+}
+
+.section h2 {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 45px;
+    color: var(--espresso);
+}
+
+/* Footer */
+.site-footer {
+    background: var(--coffee);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-inner {
+        flex-direction: column;
+        padding-bottom: 16px;
+    }
+
+    .nav-link {
+        display: inline-block;
+        padding: 12px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 0 24px;
+        margin: 60px auto;
+    }
+}
+

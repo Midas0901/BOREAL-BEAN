@@ -30,6 +30,7 @@ body {
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
+
 .nav-inner {
     max-width: 1300px;
     margin: 0 auto;
@@ -38,6 +39,7 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+
 .nav-logo {
     font-family: 'Cinzel', serif;
     font-size: 1.1rem;
@@ -47,6 +49,7 @@ body {
     text-decoration: none;
     padding: 18px 0;
 }
+
 .nav-link {
     color: rgba(242, 237, 227, 0.8);
     padding: 20px 18px;
@@ -55,7 +58,11 @@ body {
     font-size: 0.7rem;
     letter-spacing: 0.25em;
 }
-.nav-link:hover { color: var(--gold-light); }
+
+.nav-link:hover {
+    color: var(--gold-light);
+}
+
 .nav-link.nav-checkout {
     background: var(--gold);
     color: var(--coffee);
@@ -176,4 +183,26 @@ body {
     padding: 28px 20px;
     font-size: 0.95rem;
     margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-inner {
+        flex-direction: column;
+        padding-bottom: 16px;
+    }
+
+    .nav-link {
+        display: inline-block;
+        padding: 12px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 0 24px;
+        margin: 60px auto;
+    }
 }
