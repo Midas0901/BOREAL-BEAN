@@ -1,0 +1,28 @@
+.updates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.update-card {
+    background: var(--white);
+    border: 1px solid var(--fog);
+    padding: 36px 32px;
+}
+
+.update-date {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.update-card h3 {
+    margin: 16px 0;
+    color: var(--espresso);
+}
+
+.update-card p {
+    color: var(--text-mid);
+}
