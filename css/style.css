@@ -10,6 +10,8 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Crimson Pro', Georgia, serif;
     background: var(--cream);
     color: var(--coffee);
@@ -20,8 +22,9 @@ header {
     background: var(--espresso);
     color: white;
     text-align: center;
-    padding: 130px 20px 90px;
+    padding: 120px 20px 90px;
 }
+
 
 header h1 {
     font-family: 'Cinzel', serif;
@@ -34,6 +37,16 @@ header p {
     font-style: italic;
     font-size: 1.55rem;
 }
+
+.site-footer {
+    background: var(--coffee);
+    color: white;
+    padding: 80px 20px 60px;
+    margin: 0 !important;
+    width: 100%;
+    text-align: left;               /* Important */
+}
+
 
 /* Navigation */
 .main-nav {
@@ -53,13 +66,87 @@ header p {
     letter-spacing: 0.12em;
 }
 
+.nav-link2 {
+    text-align:left;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.12em;
+}
+
+.nav-link3 {
+    text-align:center;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.12em;
+}
+
+
+
+
 .nav-link:hover { color: var(--gold-light); }
+
+/* footerbox */
+.footernav {
+    display: flex;
+    justify-content: flex-start;
+    gap: 60px;
+    max-width: 1180px;
+    margin: 0 auto;
+    flex-wrap: wrap;                /* Allows wrapping on mobile */
+}
+
+.box1, .box2, .box3, .box4 {
+    flex: none;                     /* Don't stretch */
+    min-width: 160px;
+}
+
+.box1 a, .box2 a, .box3 a, .box4 a {
+    display: block;                 /* Makes each link stack vertically */
+    color: white;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.12em;
+    margin-bottom: 7px;            /* Space between links */
+    text-align: left;
+}
+
+.box1 a:hover, .box2 a:hover, .box3 a:hover, .box4 a:hover {
+    color: var(--gold-light);
+}
+.container1 div{
+
+    background:#1A0F08;
+
+}
+
+.box1{
+    flex:1;
+}
+
+.box2{
+    flex:1;
+}
+
+.box3{
+    flex:1;
+}
+
+.box4{
+    flex:1;
+}
+
+
 
 /* Sections */
 .section {
     max-width: 1180px;
     margin: 90px auto;
-    padding: 0 40px;
+    padding: 40px 0px;
+
 }
 
 .section h2 {
@@ -71,6 +158,12 @@ header p {
 }
 
 /* About */
+
+.about-text h2{
+    font-size: 1.5rem;
+    color:#2C1A0E;
+    text-align: left;
+}
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -83,6 +176,8 @@ header p {
     max-height: 420px;
     object-fit: cover;
     border-radius: 8px;
+    margin-top: 20px;      
+    margin-bottom: 20px;
 }
 
 .about-text blockquote {
@@ -115,13 +210,13 @@ header p {
 /* Products & Events */
 .events-grid, .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 35px;
 }
 
 .event-card, .product-card {
     background: white;
-    padding: 32px;
+    padding: 30px;
     border-radius: 12px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.1);
     transition: all 0.4s ease;
@@ -199,12 +294,8 @@ form input, form select, form textarea {
 }
 
 /* Footer */
-.site-footer {
-    background: var(--coffee);
-    color: white;
-    text-align: center;
-    padding: 45px 20px;
-}
+
+
 
 /* Responsive */
 @media (max-width: 768px) {
