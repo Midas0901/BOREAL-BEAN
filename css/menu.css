@@ -162,7 +162,9 @@ body {
     margin-bottom: 18px;
 }
 .add-to-cart {
+    display: inline-block;
     width: 100%;
+    text-align: center;
     background: var(--gold);
     color: var(--coffee);
     border: none;
@@ -170,8 +172,8 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 0.75rem;
     letter-spacing: 0.25em;
-    cursor: pointer;
-    transition: all 0.4s ease;
+
+    text-decoration: none;
 }
 .add-to-cart:hover {
     background: var(--gold-light);
