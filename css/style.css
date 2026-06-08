@@ -108,12 +108,12 @@ header p {
     flex-wrap: wrap;                /* Allows wrapping on mobile */
 }
 
-.box1, .box2, .box3, .box4 {
+.box1, .box2, .box3, .box4 .box5 {
     flex: none;                     /* Don't stretch */
     min-width: 160px;
 }
 
-.box1 a, .box2 a, .box3 a, .box4 a {
+.box1 a, .box2 a, .box3 a, .box4 a, .box5 a{
     display: block;                 /* Makes each link stack vertically */
     color: white;
     text-decoration: none;
@@ -123,7 +123,7 @@ header p {
     text-align: left;
 }
 
-.box1 a:hover, .box2 a:hover, .box3 a:hover, .box4 a:hover {
+.box1 a:hover, .box2 a:hover, .box3 a:hover, .box4 a:hover, .box5 a:hover{
     color: var(--gold-light);
 }
 .container1 div{
@@ -145,6 +145,10 @@ header p {
 }
 
 .box4{
+    flex:1;
+}
+
+.box5{
     flex:1;
 }
 
