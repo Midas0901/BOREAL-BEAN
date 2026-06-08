@@ -76,15 +76,7 @@ body {
     margin: 80px auto;
     padding: 0 40px;
 }
-.section-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.45em;
-    color: var(--gold);
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 12px;
-}
+
 .section-title {
     font-family: 'Cinzel', serif;
     font-size: 3rem;
@@ -101,6 +93,7 @@ body {
     margin-bottom: 50px;
     flex-wrap: wrap;
 }
+
 .top-btn {
     padding: 12px 32px;
     background: white;
@@ -109,10 +102,10 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 0.95rem;
     letter-spacing: 0.08em;
-    cursor: pointer;
-    transition: all 0.3s;
     text-decoration: none;
+    transition: all 0.3s;
 }
+
 .top-btn:hover {
     background: #f5e8d0;
 }
@@ -123,19 +116,24 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
 }
+
 .product-card {
     background: white;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(26,15,8,0.08);
+    border-radius: 4px;
 }
+
 .product-card img {
     width: 100%;
     height: 220px;
     object-fit: cover;
 }
+
 .product-body {
     padding: 20px;
 }
+
 .product-category {
     font-family: 'Cinzel', serif;
     font-size: 0.58rem;
@@ -144,17 +142,20 @@ body {
     text-transform: uppercase;
     margin-bottom: 8px;
 }
+
 .product-body h3 {
     font-size: 1.45rem;
     color: var(--espresso);
     margin-bottom: 8px;
 }
+
 .product-body p {
     font-size: 0.95rem;
     color: #7A6655;
     margin-bottom: 16px;
     line-height: 1.6;
 }
+
 .product-price {
     font-family: 'Cinzel', serif;
     font-size: 1.2rem;
@@ -162,27 +163,55 @@ body {
     color: var(--espresso);
     margin-bottom: 18px;
 }
-.add-to-cart {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
+
+/* Product Actions - Add to Order (Left) | View Details (Right) */
+.product-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.add-to-order {
+    flex: 1;
     background: var(--gold);
     color: var(--coffee);
     border: none;
-    padding: 16px;
+    padding: 14px 12px;
     font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
-
-    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 4px;
 }
-.add-to-cart:hover {
+
+.add-to-order:hover {
     background: var(--gold-light);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+}
+
+.view-details {
+    flex: 1;
+    text-align: center;
+    background: white;
+    color: var(--espresso);
+    border: 2px solid var(--gold);
+    padding: 14px 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.view-details:hover {
+    background: #f5e8d0;
+    color: var(--espresso);
 }
 
 /* Footer */
-footer {
+.site-footer {
     background: var(--coffee);
     color: rgba(242,237,227,0.65);
     text-align: center;
@@ -196,18 +225,181 @@ footer {
         flex-direction: column;
         padding-bottom: 16px;
     }
-
-    .nav-link {
-        display: inline-block;
-        padding: 12px;
-    }
-
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
     .section {
         padding: 0 24px;
         margin: 60px auto;
     }
+}
+
+@media (max-width: 480px) {
+    .product-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* ==================== PRODUCT DETAIL PAGE ==================== */
+.product-detail-page {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 40px;
+}
+
+.product-detail-hero {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+}
+
+.product-detail-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.product-detail-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-detail-info h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.2rem;
+    color: var(--espresso);
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.product-price {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: var(--espresso);
+    margin-bottom: 20px;
+}
+
+.product-detail-info p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #4a3f35;
+    margin-bottom: 30px;
+}
+
+.detail-add-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--coffee);
+    padding: 14px 32px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    margin-right: 20px;
+    transition: all 0.3s;
+}
+
+.detail-add-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+.back-link {
+    color: #6b5e4f;
+    text-decoration: underline;
+    font-size: 1rem;
+}
+
+.back-link:hover {
+    color: var(--espresso);
+}
+
+/* Extra Info Section */
+.product-extra-info {
+    background: white;
+    padding: 50px 60px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.product-extra-info h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: var(--espresso);
+    margin: 40px 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.product-extra-info p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #4a3f35;
+}
+
+.product-extra-info ul {
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.product-extra-info li {
+    margin: 10px 0;
+    font-size: 1.05rem;
+    color: #4a3f35;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-detail-hero {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .product-detail-page {
+        padding: 0 20px;
+    }
+}
+.detail-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.detail-add-btn {
+    flex: 1;
+    background: var(--gold);
+    color: var(--coffee);
+    padding: 16px 32px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.detail-add-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+.detail-back-btn {
+    flex: 1;
+    background: white;
+    color: var(--espresso);
+    border: 2px solid var(--gold);
+    padding: 16px 32px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.detail-back-btn:hover {
+    background: #f5e8d0;
 }
