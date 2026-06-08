@@ -312,3 +312,76 @@ form input, form select, form textarea {
     .section { padding: 0 20px; margin: 60px auto; }
     .story-image { max-width: 95%; }
 }
+
+
+/* Product Detail Pages */
+
+.product-detail-page {
+    max-width: 1100px;
+}
+
+.product-detail-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.product-detail-image img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-detail-info h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--espresso);
+    margin-bottom: 20px;
+}
+
+.product-detail-info p {
+    margin-bottom: 24px;
+}
+
+.detail-button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: block;
+    color: var(--espresso);
+    margin-top: 10px;
+}
+
+.product-extra-info {
+    margin-top: 80px;
+    background: white;
+    padding: 40px;
+}
+
+.product-extra-info h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--espresso);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.product-extra-info h2:first-child {
+    margin-top: 0;
+}
+
+.product-extra-info ul {
+    margin-left: 24px;
+}
+
+@media (max-width: 768px) {
+    .product-detail-hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
