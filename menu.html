@@ -6,6 +6,7 @@
     <title>Menu — Boreal & Bean</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/menu.css">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -18,9 +19,6 @@
             <div class="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="menu.html" class="nav-link">Menu</a>
-                <a href="story.html" class="nav-link">Our Story</a>
-                <a href="update.html" class="nav-link">Updates</a>
-                <a href="contact.html" class="nav-link">Contact</a>
                 <a href="checkout.html" class="nav-link nav-checkout">Checkout</a>
             </div>
         </div>
@@ -32,7 +30,7 @@
         <span class="section-label">The Collection</span>
         <h2 class="section-title">Our Wild-Infused Menu</h2>
 
-        <!-- 4 Buttons on Top -->
+        <!-- 4 Buttons on Top (No Function) -->
         <div class="top-buttons">
             <button class="top-btn">All</button>
             <button class="top-btn">Drink</button>
@@ -40,8 +38,7 @@
             <button class="top-btn">Snack</button>
         </div>
 
-        <!-- 10 Product Cards  -->
-        <!-- source I look for making column box -> https://youtu.be/EiNiSFIPIQE?si=Y0Pd1b-JtieY411g -->
+        <!-- 10 Product Cards -->
         <div class="product-grid">
             <!-- Drink -->
             <div class="product-card">
@@ -115,7 +112,7 @@
                     <h3>Forest Greens Salad</h3>
                     <p>Wild berries, fiddleheads in maple vinaigrette.</p>
                     <div class="product-price">CA$12.90</div>
-                    <button class="add-to-cart" onclick="window.location.href='checkout.html'">Add to Box</button>
+                   <button class="add-to-cart" onclick="window.location.href='checkout.html'">Add to Box</button>
                 </div>
             </div>
             <div class="product-card">
@@ -151,12 +148,35 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Boreal &amp; Bean — Ontario, Canada</p>
-    </footer>
 
-    <script>
-    </script>
+   <footer class="site-footer">
+        <nav class="footernav">
+            <div class="box1">
+                <a href="about.html" class="nav-link2">About</a>
+                <a href="about.html" class="nav-link3">Our Story</a>
+                <a href="about.html" class="nav-link3">Our Process</a>
+            </div>
+
+            <div class="box2">
+                <a href="update.html" class="nav-link2">Events</a>
+                <a href="update.html" class="nav-link3">Updates</a>
+                <a href="update.html" class="nav-link3">Seasonal Menu</a>
+            </div>
+
+            <div class="box3">
+                <a href="feedback.html" class="nav-link2">Feedback</a>
+                <a href="feedback.html" class="nav-link3">Share Your Thoughts</a>
+                <a href="feedback.html" class="nav-link3">Product Review</a>
+            </div>
+
+            <div class="box4">
+                <a href="contact.html" class="nav-link2">Contact</a>
+                <a href="contact.html" class="nav-link3">Ask@Borealbean.com</a>
+                <a href="contact.html" class="nav-link3">1(604)-555-1234</a>
+            </div>
+        </nav>
+
+        <p>© 2026 Boreal &amp; Bean. All rights reserved.</p>
+    </footer>
 </body>
 </html>

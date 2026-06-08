@@ -50,44 +50,53 @@ header p {
 
 /* Navigation */
 .main-nav {
-    background: var(--coffee);
-    padding: 20px 0;
-    text-align: center;
+    background: rgba(26, 15, 8, 0.98);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.nav-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    color: var(--gold-light);
+    text-decoration: none;
+    padding: 18px 0;
 }
 
 .nav-link {
-    color: white;
-    margin: 0 20px;
+    color: rgba(242, 237, 227, 0.8);
+    padding: 20px 18px;
     text-decoration: none;
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
 }
 
-.nav-link2 {
-    text-align:left;
-    color: white;
-    margin: 0 20px;
-    text-decoration: none;
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.12em;
+.nav-link:hover {
+    color: var(--gold-light);
 }
 
-.nav-link3 {
-    text-align:center;
-    color: white;
-    margin: 0 20px;
-    text-decoration: none;
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.12em;
+.nav-link.nav-checkout {
+    background: var(--gold);
+    color: var(--coffee);
+    padding: 10px 24px;
+    margin-left: 10px;
+    font-weight: 600;
+    border-radius: 4px;
 }
-
-
-
-
-.nav-link:hover { color: var(--gold-light); }
 
 /* footerbox */
 .footernav {
@@ -282,10 +291,10 @@ form input, form select, form textarea {
 }
 
 .stars {
-    font-size: 2.8rem;
+    font-size: 4rem;
     color: #ddd;
     cursor: pointer;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .stars span:hover,
