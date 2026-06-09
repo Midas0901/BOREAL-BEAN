@@ -423,6 +423,14 @@ form input, form select, form textarea {
     margin-left: 24px;
 }
 
+.product-card-content h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    text-align: left;
+    color: var(--espresso);
+}
+
 @media (max-width: 768px) {
     .product-detail-hero {
         grid-template-columns: 1fr;

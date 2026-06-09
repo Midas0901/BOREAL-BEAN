@@ -126,6 +126,14 @@ body {
     color: var(--espresso);
 }
 
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: var(--espresso);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 /* Footer */
 .site-footer {
     background: var(--coffee);
