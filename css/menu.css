@@ -1,3 +1,4 @@
+/* https://www.youtube.com/watch?v=5wLrz_zUwoU - root setting color name and theme of coffee*/
 :root {
     --coffee: #1A0F08;
     --espresso: #2C1A0E;
@@ -170,7 +171,7 @@ body {
     gap: 12px;
     margin-top: 10px;
 }
-
+/* https://youtube.com/shorts/fRzejOLJ578?si=xM5W69IT-8fxw46Y - padding and margin video */
 .add-to-order {
     flex: 1;
     background: var(--gold);
@@ -361,6 +362,7 @@ body {
         padding: 0 20px;
     }
 }
+
 .detail-buttons {
     display: flex;
     gap: 15px;
@@ -371,7 +373,7 @@ body {
 .detail-add-btn {
     flex: 1;
     background: var(--gold);
-    color: var(--coffee);
+    color: var(--coffee);  /*using color from root above */
     padding: 16px 32px;
     text-align: center;
     font-family: 'Cinzel', serif;
