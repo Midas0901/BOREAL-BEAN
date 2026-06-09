@@ -81,6 +81,11 @@ body {
 
 /* main content */
 
+/* Updates grid
+   repeat(auto-fit, minmax()) creates a flexible card grid that adjusts to screen width.
+   Reference: MDN Web Docs, CSS Grid repeat()
+   https://developer.mozilla.org/en-US/docs/Web/CSS/repeat
+*/
 .updates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

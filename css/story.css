@@ -80,6 +80,11 @@ body {
     padding: 0 40px;
 }
 
+/* Responsive story title
+   clamp() keeps the title readable across different browser widths.
+   Reference: MDN Web Docs, CSS clamp()
+   https://developer.mozilla.org/en-US/docs/Web/CSS/clamp
+*/
 .section-title {
     font-family: 'Cinzel', serif;
     font-size: clamp(2.4rem, 5vw, 3.6rem);

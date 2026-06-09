@@ -34,6 +34,10 @@ body {
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
+/* Sticky navigation - Keeps the navigation visible at the top while scrolling.
+   Reference: MDN Web Docs, position: sticky
+   https://developer.mozilla.org/en-US/docs/Web/CSS/position
+*/
 
 .nav-inner {
     max-width: 1300px;
@@ -84,6 +88,11 @@ body {
     flex: 1;
 }
 
+/* Responsive heading size
+   clamp() lets the heading scale between a minimum and maximum size.
+   Reference: MDN Web Docs, CSS clamp()
+   https://developer.mozilla.org/en-US/docs/Web/CSS/clamp
+*/
 .section-title {
     font-family: 'Cinzel', serif;
     font-size: clamp(2.4rem, 5vw, 3.6rem);
