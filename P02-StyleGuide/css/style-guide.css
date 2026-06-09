@@ -143,3 +143,194 @@ button,
     color: white;
     text-decoration: none;
 }
+
+.element {
+    margin-bottom: 60px;
+}
+
+.element h3 {
+    margin-top: 0;
+}
+
+.element h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--espresso);
+    margin-top: 28px;
+    margin-bottom: 12px;
+}
+
+.element code {
+    display: block;
+    background: #F2EDE3;
+    color: #1A0F08;
+    padding: 8px 12px;
+    margin: 8px 0;
+    overflow-wrap: break-word;
+}
+
+.element ul,
+.element ol {
+    margin-left: 28px;
+    margin-bottom: 24px;
+}
+
+.product-actions,
+.detail-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.add-to-order,
+.detail-add-btn {
+    flex: 1;
+    background: var(--gold);
+    color: var(--coffee);
+    border: none;
+    padding: 14px 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.view-details,
+.detail-back-btn {
+    flex: 1;
+    background: white;
+    color: var(--espresso);
+    border: 2px solid var(--gold);
+    padding: 14px 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.top-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.top-btn {
+    padding: 12px 32px;
+    background: white;
+    border: 2px solid var(--gold);
+    color: var(--espresso);
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+}
+
+.cart-summary {
+    background: #EDE5D4;
+    border: 1px solid #d4c9b0;
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+.cart-summary h2 {
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #d4c9b0;
+}
+
+.qty {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.price {
+    font-weight: 600;
+    color: var(--espresso);
+}
+
+.total-line {
+    height: 2px;
+    background: var(--gold);
+    margin: 25px 0 18px 0;
+}
+
+.total {
+    font-family: 'Cinzel', serif;
+    font-size: 1.55rem;
+    text-align: right;
+    color: var(--espresso);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.contact-info,
+.contact-form {
+    background: white;
+    border: 1px solid #D4C9B0;
+    border-radius: 12px;
+    padding: 40px;
+}
+
+.contact-info {
+    background: #EDE5D4;
+}
+
+.contact-info h3,
+.contact-form h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.submit-btn {
+    width: 100%;
+    background: var(--gold);
+    color: var(--coffee);
+    border: none;
+    padding: 18px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    cursor: pointer;
+}
+
+.section-title h1 {
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 3.5rem;
+}
+.section-title h2 {
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+.section-title h3 {
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .product-actions,
+    .detail-buttons,
+    .contact-container {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+}

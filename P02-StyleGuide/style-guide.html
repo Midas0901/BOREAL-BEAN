@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boreal & Bean — Style Guide</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">    <link rel="stylesheet" href="../css/style.css">
+    <title>Boreal &amp; Bean — Style Guide</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/style-guide.css">
 </head>
 
@@ -16,7 +18,6 @@
         <p>123 Forest Trail, Huntsville, Ontario, Canada</p>
     </header>
 
-     <!-- navigation -->
     <nav class="main-nav">
         <div class="nav-inner">
             <a href="../index.html" class="nav-logo">B &amp; B</a>
@@ -29,308 +30,362 @@
         </div>
     </nav>
 
-    <div class="section">
-        <h2>Brand Identity</h2>
-        <p><strong>What we offer:</strong> Specialty coffee and wild-infused foods inspired by Canadian wilderness.</p>
-        <p><strong>Who we are:</strong> A warm, nature-loving Canadian brand that connects people with the spirit of the northern forests.</p>
-        <p><strong>Why choose us:</strong> Sustainable practices, reclaimed Canadian wood, maple & birch syrup flavors, and eco-friendly mission.</p>
-    </div>
+    <main>
 
-    <!-- 1. Interactive Elements -->
-    <div class="section">
-        <h2>1. Interactive Elements</h2>
-        
-        <div class="demo-box">
-            <section class="element">
-                <h3>In-text Link</h3>
-
-                <p><strong>CSS selectors:</strong><code>a</code></p>
-
-                <h4>Sample Code:</h4>
-                <code>&lt;p&gt;Our most popular drink is the &lt;a href="menu.html"&gt;Spruce Tip Latte&lt;/a&gt;.&lt;/p&gt;</code>
-                
-                <p>Our most popular drink is the <a href="../menu.html">Spruce Tip Latte</a>, made with foraged spruce tips and Canadian maple syrup.</p>
-            </section>        
+        <div class="section">
+            <h2>Brand Identity</h2>
+            <p><strong>What we offer:</strong> Specialty coffee and wild-infused foods inspired by Canadian wilderness.</p>
+            <p><strong>Who we are:</strong> A warm, nature-loving Canadian brand that connects people with the spirit of northern forests.</p>
+            <p><strong>Why choose us:</strong> Sustainable practices, maple-inspired flavors, forest imagery, and a cozy café experience.</p>
         </div>
-        
-       <div class="demo-box">
-            <section class="element">
-                <h3>Navigation Bar</h3>
 
-                <p><strong>CSS selectors:</strong>
+        <div class="section">
+            <h2>1. Interactive Elements</h2>
+
+            <div class="demo-box">
+                <section class="element">
+                    <h3>In-text Link</h3>
+
+                    <p><strong>CSS selectors:</strong></p>
+                    <code>a</code>
+                    <code>.view-details</code>
+
+                    <h4>Sample Code</h4>
+                    <code>&lt;p&gt;Try our &lt;a href="spruce-latte.html"&gt;Spruce Tip Latte&lt;/a&gt;.&lt;/p&gt;</code>
+
+                    <p>Try our <a href="../spruce-latte.html">Spruce Tip Latte</a>, made with espresso, maple syrup, and spruce-tip flavour.</p>
+                </section>
+            </div>
+
+            <div class="demo-box">
+                <section class="element">
+                    <h3>Navigation Bar</h3>
+
+                    <p><strong>CSS selectors:</strong></p>
                     <code>.main-nav</code>
                     <code>.nav-inner</code>
                     <code>.nav-logo</code>
                     <code>.nav-menu</code>
                     <code>.nav-link</code>
                     <code>.nav-checkout</code>
-                </p>
 
-                <h4>Sample Code:</h4>
-                <code>&lt;nav class="main-nav"&gt;</code>
-                <code>&lt;div class="nav-inner"&gt;</code>
-                <code>&lt;a href="index.html" class="nav-logo"&gt;B &amp;amp; B&lt;/a&gt;</code>
-                <code>&lt;div class="nav-menu"&gt;</code>
-                <code>&lt;a href="index.html" class="nav-link"&gt;Home&lt;/a&gt;</code>
-                <code>&lt;a href="menu.html" class="nav-link"&gt;Menu&lt;/a&gt;</code>
-                <code>&lt;a href="story.html" class="nav-link"&gt;Our Story&lt;/a&gt;</code>
-                <code>&lt;a href="update.html" class="nav-link"&gt;Updates&lt;/a&gt;</code>
-                <code>&lt;a href="contact.html" class="nav-link"&gt;Contact&lt;/a&gt;</code>
-                <code>&lt;a href="checkout.html" class="nav-link nav-checkout"&gt;Checkout&lt;/a&gt;</code>
-                <code>&lt;/div&gt;</code>
-                <code>&lt;/div&gt;</code>
-                <code>&lt;/nav&gt;</code>
-            </section>
-        </div>
-        
-        <div class="demo-box">
-            <section class="element">
-                <h3>Submit & Reset Buttons</h3>
+                    <h4>Sample Code</h4>
+                    <code>&lt;nav class="main-nav"&gt;</code>
+                    <code>&lt;div class="nav-inner"&gt;</code>
+                    <code>&lt;a href="index.html" class="nav-logo"&gt;B &amp;amp; B&lt;/a&gt;</code>
+                    <code>&lt;div class="nav-menu"&gt;</code>
+                    <code>&lt;a href="index.html" class="nav-link"&gt;Home&lt;/a&gt;</code>
+                    <code>&lt;a href="menu.html" class="nav-link"&gt;Menu&lt;/a&gt;</code>
+                    <code>&lt;a href="checkout.html" class="nav-link nav-checkout"&gt;Checkout&lt;/a&gt;</code>
+                    <code>&lt;/div&gt;</code>
+                    <code>&lt;/div&gt;</code>
+                    <code>&lt;/nav&gt;</code>
+                </section>
+            </div>
 
-                <p><strong>CSS selectors:</strong> 
-                    <code>.primary-button</code> 
-                    <code>.secondary-button</code>
-                </p>
+            <div class="demo-box">
+                <section class="element">
+                    <h3>Category Buttons</h3>
 
-                <h4>Sample Code</h4>
-                    <code>&lt;input type="submit" value="Place Order"&gt;</code>
-                    <code>&lt;input type="reset" value="Reset"&gt;</code>
-                
-                <input class="primary-button" type="submit" value="Place Order">
-                <input class="secondary-button" type="reset" value="Reset">
-            </section>
-        </div>
-        
-        <div class="demo-box">
-            <section class="element">
-                <h3>Text Input + Label</h3>
+                    <p><strong>CSS selectors:</strong></p>
+                    <code>.top-buttons</code>
+                    <code>.top-btn</code>
 
-                <p><strong>CSS selectors:</strong><code>label</code><code>input[type="email"]</code></p>
+                    <h4>Sample Code</h4>
+                    <code>&lt;div class="top-buttons"&gt;</code>
+                    <code>&lt;a href="menu.html" class="top-btn"&gt;All&lt;/a&gt;</code>
+                    <code>&lt;a href="drink.html" class="top-btn"&gt;Drink&lt;/a&gt;</code>
+                    <code>&lt;a href="food.html" class="top-btn"&gt;Food&lt;/a&gt;</code>
+                    <code>&lt;a href="snack.html" class="top-btn"&gt;Snack&lt;/a&gt;</code>
+                    <code>&lt;/div&gt;</code>
 
-                <h4>Sample Code</h4>
-                    <code>&lt;label for="email"&gt;Email Address:&lt;/label&gt;</code>
+                    <div class="top-buttons">
+                        <a href="../menu.html" class="top-btn">All</a>
+                        <a href="../drink.html" class="top-btn">Drink</a>
+                        <a href="../food.html" class="top-btn">Food</a>
+                        <a href="../snack.html" class="top-btn">Snack</a>
+                    </div>
+                </section>
+            </div>
+
+            <div class="demo-box">
+                <section class="element">
+                    <h3>Submit Button</h3>
+
+                    <p><strong>CSS selectors:</strong></p>
+                    <code>.primary-button</code>
+                    <code>.submit-btn</code>
+                    <code>.pay-btn</code>
+
+                    <h4>Sample Code</h4>
+                    <code>&lt;input class="primary-button" type="submit" value="Submit Feedback"&gt;</code>
+
+                    <input class="primary-button" type="submit" value="Submit Feedback">
+                </section>
+            </div>
+
+            <div class="demo-box">
+                <section class="element">
+                    <h3>Text Input and Label</h3>
+
+                    <p><strong>CSS selectors:</strong></p>
+                    <code>label</code>
+                    <code>input</code>
+                    <code>textarea</code>
+
+                    <h4>Sample Code</h4>
+                    <code>&lt;label for="email"&gt;Email Address&lt;/label&gt;</code>
                     <code>&lt;input type="email" id="email" placeholder="your@email.com"&gt;</code>
 
-                <label for="email">Email Address:</label><br><br>
-                <input type="email" id="email" placeholder="your@email.com">
-            </section>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="your@email.com">
+                </section>
+            </div>
         </div>
-        
-        <div class="demo-box">
-            <section class="element">
-                <h3>Radio Button + Label</h3>
 
-                <p><strong>CSS selectors:</strong><code>label</code><code>input[type="radio"]</code></p>
+        <div class="section">
+            <h2>2. Text Styling</h2>
+
+            <section class="element">
+                <h3>Typography</h3>
+
+                <p><strong>CSS selectors:</strong></p>
+                <code>h1</code>
+                <code>h2</code>
+                <code>h3</code>
+                <code>p</code>
+                <code>.section-title</code>
 
                 <h4>Sample Code</h4>
-                    <code>&lt;label&gt;&lt;input type="radio" name="size" value="small"&gt; Small&lt;/label&gt;</code>
-                    <code>&lt;label&gt;&lt;input type="radio" name="size" value="medium"&gt;Medium&lt;/label&gt;</code>
-                    <code>&lt;label&gt;&lt;input type="radio" name="size" value="large"&gt;Large&lt;/label&gt;</code>
+                <code>&lt;h1 class="section-title"&gt;Our Wild-Infused Menu&lt;/h1&gt;</code>
+                <code>&lt;h2&gt;Browse Our Featured Drinks and Foods&lt;/h2&gt;</code>
+                <code>&lt;h3&gt;Spruce Tip Latte&lt;/h3&gt;</code>
+                <code>&lt;p&gt;Espresso, steamed milk, foraged spruce tips and maple syrup.&lt;/p&gt;</code>
 
-                <label><input type="radio" name="size" value="small"> Small</label><br><br>
-                <label><input type="radio" name="size" value="medium" checked> Medium</label><br><br>
-                <label><input type="radio" name="size" value="large"> Large</label>
+                <section class="section-title">
+                    <h1>Heading 1</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
+                    <p>Boreal &amp; Bean uses warm serif typography to create a calm and nature-inspired café experience.</p>
+                </section>
+
+                <p><strong>Font Usage:</strong></p>
+                <ul>
+                    <li>Cinzel — headings, navigation, buttons, and labels.</li>
+                    <li>Cormorant Garamond — expressive brand text.</li>
+                    <li>Crimson Pro — body text and paragraph content.</li>
+                </ul>
             </section>
         </div>
-        
-        <div class="demo-box">
+
+        <div class="section">
+            <h2>3. Combined Elements</h2>
+
             <section class="element">
-                <h3>Image as Link</h3>
+                <h3>Product Listing</h3>
 
-                <p><strong>CSS selectors:</strong><code>a img</code></p>
-
-
-                <h4>Sample Code</h4>
-                    <code>&lt;a href="menu.html"&gt;</code>
-                        <code>&lt;img src="image/coffee.jpg" alt="Spruce Tip Latte"&gt;</code>
-                    <code>&lt;/a&gt;</code>
-
-                <a href="menu.html">
-                    <img src="image/coffee.jpg" alt="Spruce Tip Latte" style="max-width:100%; border-radius:16px;">
-                </a>
-            </section>
-        </div>
-    </div>
-
-    <!-- 2. Text Styling -->
-    <div class="section">
-        <section class="element">
-            <h3>2. Text Styling</h3>
-
-            <p><strong>CSS selectors:</strong><code>h1</code><code>h2</code><code>h3</code><code>h4</code><code>h</code></code></p>
-
-
-            <h4>Sample Code</h4>
-                <code>&lt;h1&gt;...&lt;/h1&gt;</code>
-                <code>&lt;h2&gt;...&lt;/h2&gt;</code>
-                <code>&lt;h3&gt;...&lt;/h3&gt;</code>
-                <code>&lt;h4&gt;...&lt;/h4&gt;</code>
-            
-            <h1>Heading Level 1</h1>
-            <h2>Heading Level 2</h2>
-            <h3>Heading Level 3</h3>
-            <h4>Heading Level 4</h4>
-            <p>Welcome to Boreal & Bean. Every cup carries the essence of the Canadian wilderness — from sustainable farms to our eco-roastery in Ontario.</p>
-        
-            <p><strong>Font Usage:</strong></p>
-            <ul>
-                <li>Cinzel — Main headings (h1, h2)</li>
-                <li>Cormorant Garamond — Subheadings (h3, h4)</li>
-                <li>Crimson Pro — Body text (p)</li>
-            </ul>
-            
-
-            <h3>Numbered List</h3>
-
-            <p><strong>CSS selectors:</strong><code>ol</code><code>ol li</code></p>
-
-             <h4>Sample Code</h4>
-
-                <code>&lt;ol&gt;</code>
-                    <code>&lt;li&gt;...&lt;/li&gt;</code>
-                    <code>&lt;li&gt;...&lt;/li&gt;</code>
-                    <code>&lt;li&gt;...&lt;/li&gt;</code>
-                    <code>&lt;li&gt;...&lt;/li&gt;</code>
-                <code>&lt;/ol&gt;</code>
-
-            <ol>
-                <li>Source premium beans from fair-trade farms</li>
-                <li>Slow-roast using low-emission technology</li>
-                <li>Infuse with wild Canadian ingredients</li>
-                <li>Serve with passion and sustainability</li>
-            </ol>
-        </section>
-    </div>
-
-    <!-- 3. Combined Elements -->
-    <div class="section">
-        <h2>3. Combined Elements</h2>
-
-        <section class="element">
-            <h3>Product Listing</h3>
-
-            <p><strong>CSS selectors:</strong>
+                <p><strong>CSS selectors:</strong></p>
                 <code>.product-grid</code>
                 <code>.product-card</code>
                 <code>.product-body</code>
                 <code>.product-category</code>
                 <code>.product-price</code>
-                <code>.add-to-cart</code>
-            </p>
+                <code>.product-actions</code>
+                <code>.add-to-order</code>
+                <code>.view-details</code>
 
-            <h4>Sample Code</h4>
-            <code>&lt;div class="product-card"&gt;</code>
-            <code>&lt;img src="image/coffee.jpg" alt="Spruce Tip Latte"&gt;</code>
-            <code>&lt;div class="product-body"&gt;</code>
-            <code>&lt;div class="product-category"&gt;drink&lt;/div&gt;</code>
-            <code>&lt;h3&gt;Spruce Tip Latte&lt;/h3&gt;</code>
-            <code>&lt;p&gt;Espresso, steamed milk, foraged spruce tips and maple syrup.&lt;/p&gt;</code>
-            <code>&lt;div class="product-price"&gt;CA$7.90&lt;/div&gt;</code>
-            <code>&lt;button class="add-to-cart"&gt;Add to Box&lt;/button&gt;</code>
-            <code>&lt;/div&gt;</code>
-            <code>&lt;/div&gt;</code>
-
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="image/coffee.jpg" alt="Spruce Tip Latte">
-                    <div class="product-body">
-                        <div class="product-category">drink</div>
-                        <h3>Spruce Tip Latte</h3>
-                        <p>Espresso, steamed milk, foraged spruce tips and maple syrup.</p>
-                        <div class="product-price">CA$7.90</div>
-                        <button class="add-to-cart">Add to Box</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="element">
-            <h3>Payment Form</h3>
-
-            <p><strong>CSS selectors:</strong>
-                <code>.checkout-container</code>
-                <code>.payment-form</code>
-                <code>.form-group</code>
-                <code>.form-row</code>
-                <code>.pay-btn</code>
-            </p>
-
-            <h4>Sample Code</h4>
-            <code>&lt;div class="payment-form"&gt;</code>
-            <code>&lt;h3&gt;Payment Information&lt;/h3&gt;</code>
-            <code>&lt;form&gt;</code>
-            <code>&lt;label&gt;Cardholder Name&lt;/label&gt;</code>
-            <code>&lt;input type="text" placeholder="John Doe" required&gt;</code>
-            <code>&lt;label&gt;Card Number&lt;/label&gt;</code>
-            <code>&lt;input type="text" placeholder="1234 5678 9012 3456" maxlength="19" required&gt;</code>
-            <code>&lt;button type="submit" class="pay-btn"&gt;PAY SECURELY&lt;/button&gt;</code>
-            <code>&lt;/form&gt;</code>
-            <code>&lt;/div&gt;</code>
-
-            <div class="checkout-container">
-                <div class="payment-form">
-
-                    <h3>Payment Information</h3>
-
-                    <div class="form-group">
-                        <label>Cardholder Name</label>
-                        <input type="text" placeholder="John Doe">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Card Number</label>
-                        <input type="text" placeholder="1234 5678 9012 3456">
-                    </div>
-
-                    <div class="form-row">
-
-                        <div class="form-group">
-                            <label>Expiry Date (MM/YY)</label>
-                            <input type="text" placeholder="MM/YY">
-                        </div>
-
-                        <div class="form-group">
-                            <label>CVV</label>
-                            <input type="text" placeholder="123">
-                        </div>
-
-                    </div>
-
-                    <button class="pay-btn">
-                        PAY SECURELY
-                    </button>
-
-                </div>
-            </div>
-        </section>
-
-
-        <section class="element">
-            <h3>Checkout Cart</h3>
-
-            <p><strong>CSS selectors:</strong>
-                <code>.cart</code>
-                <code>.cart button</code>
-            </p>
-
-            <h4>Sample Code</h4>
-                <code>&lt;div class="cart"&gt;</code>
-                <code>&lt;h4&gt;Your Cart&lt;/h4&gt;</code>
-                <code>&lt;p&gt;1. Spruce Tip Latte — CA$7.90&lt;/p&gt;</code>
-                <code>&lt;p&gt;2. Maple Butter Bread — CA$6.50&lt;/p&gt;</code>
-                <code>&lt;p&gt;&lt;strong&gt;Total: CA$14.40&lt;/strong&gt;&lt;/p&gt;</code>
+                <h4>Sample Code</h4>
+                <code>&lt;div class="product-card"&gt;</code>
+                <code>&lt;img src="image/coffee.jpg" alt="Spruce Tip Latte"&gt;</code>
+                <code>&lt;div class="product-body"&gt;</code>
+                <code>&lt;div class="product-category"&gt;drink&lt;/div&gt;</code>
+                <code>&lt;h3&gt;Spruce Tip Latte&lt;/h3&gt;</code>
+                <code>&lt;p&gt;Espresso, steamed milk, foraged spruce tips and maple syrup.&lt;/p&gt;</code>
+                <code>&lt;div class="product-price"&gt;CA$7.90&lt;/div&gt;</code>
+                <code>&lt;div class="product-actions"&gt;</code>
+                <code>&lt;button class="add-to-order"&gt;Add to Order&lt;/button&gt;</code>
+                <code>&lt;a href="spruce-latte.html" class="view-details"&gt;View Details&lt;/a&gt;</code>
+                <code>&lt;/div&gt;</code>
+                <code>&lt;/div&gt;</code>
                 <code>&lt;/div&gt;</code>
 
-            <div class="cart">
-                <h4>Your Cart</h4>
-                <p>1. Spruce Tip Latte x 1 — <strong>CA$7.90</strong></p>
-                <p>2. Maple Butter Bread x 1 — <strong>CA$6.50</strong></p>
-                <hr style="margin:20px 0;">
-                <p><strong>Total: CA$14.40</strong></p>
-                <button onclick="window.location.href='checkout.html'">Proceed to Checkout</button>
-            </div>
-        </section>
-    </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="../image/coffee.jpg" alt="Spruce Tip Latte">
+                        <div class="product-body">
+                            <div class="product-category">drink</div>
+                            <h3>Spruce Tip Latte</h3>
+                            <p>Espresso, steamed milk, foraged spruce tips and maple syrup.</p>
+                            <div class="product-price">CA$7.90</div>
+                            <div class="product-actions">
+                                <button class="add-to-order">Add to Order</button>
+                                <a href="../spruce-latte.html" class="view-details">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="element">
+                <h3>Product Detail Buttons</h3>
+
+                <p><strong>CSS selectors:</strong></p>
+                <code>.product-detail-hero</code>
+                <code>.product-detail-info</code>
+                <code>.detail-buttons</code>
+                <code>.detail-add-btn</code>
+                <code>.detail-back-btn</code>
+
+                <h4>Sample Code</h4>
+                <code>&lt;div class="detail-buttons"&gt;</code>
+                <code>&lt;a href="checkout.html" class="detail-add-btn"&gt;Add to Box&lt;/a&gt;</code>
+                <code>&lt;a href="menu.html" class="detail-back-btn"&gt;Back to Menu&lt;/a&gt;</code>
+                <code>&lt;/div&gt;</code>
+
+                <div class="detail-buttons">
+                    <a href="../checkout.html" class="detail-add-btn">Add to Box</a>
+                    <a href="../menu.html" class="detail-back-btn">Back to Menu</a>
+                </div>
+            </section>
+
+            <section class="element">
+                <h3>Payment Form</h3>
+
+                <p><strong>CSS selectors:</strong></p>
+                <code>.checkout-container</code>
+                <code>.payment-form</code>
+                <code>.form-row</code>
+                <code>.pay-btn</code>
+
+                <h4>Sample Code</h4>
+                <code>&lt;div class="payment-form"&gt;</code>
+                <code>&lt;h3&gt;Payment Information&lt;/h3&gt;</code>
+                <code>&lt;form&gt;</code>
+                <code>&lt;label&gt;Cardholder Name&lt;/label&gt;</code>
+                <code>&lt;input type="text" placeholder="John Doe" required&gt;</code>
+                <code>&lt;button type="submit" class="pay-btn"&gt;PAY SECURELY&lt;/button&gt;</code>
+                <code>&lt;/form&gt;</code>
+                <code>&lt;/div&gt;</code>
+
+                <div class="checkout-container">
+                    <div class="payment-form">
+                        <h3>Payment Information</h3>
+
+                        <form>
+                            <label>Cardholder Name</label>
+                            <input type="text" placeholder="John Doe">
+
+                            <label>Card Number</label>
+                            <input type="text" placeholder="1234 5678 9012 3456">
+
+                            <div class="form-row">
+                                <div>
+                                    <label>Expiry Date (MM/YY)</label>
+                                    <input type="text" placeholder="MM/YY">
+                                </div>
+
+                                <div>
+                                    <label>CVV</label>
+                                    <input type="text" placeholder="123">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="pay-btn">PAY SECURELY</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="element">
+                <h3>Checkout Cart</h3>
+
+                <p><strong>CSS selectors:</strong></p>
+                <code>.cart-summary</code>
+                <code>.cart-items</code>
+                <code>.cart-item</code>
+                <code>.qty</code>
+                <code>.price</code>
+                <code>.total-line</code>
+                <code>.total</code>
+
+                <h4>Sample Code</h4>
+                <code>&lt;div class="cart-summary"&gt;</code>
+                <code>&lt;h2&gt;Your Cart&lt;/h2&gt;</code>
+                <code>&lt;div class="cart-item"&gt;...&lt;/div&gt;</code>
+                <code>&lt;div class="total-line"&gt;&lt;/div&gt;</code>
+                <code>&lt;div class="total"&gt;Total: &lt;strong&gt;CA$14.40&lt;/strong&gt;&lt;/div&gt;</code>
+                <code>&lt;/div&gt;</code>
+
+                <div class="cart-summary">
+                    <h2>Your Cart</h2>
+
+                    <div class="cart-items">
+                        <div class="cart-item">
+                            <div>
+                                <strong>Spruce Tip Latte</strong><br>
+                                <span class="qty">x 1</span>
+                            </div>
+                            <span class="price">CA$7.90</span>
+                        </div>
+
+                        <div class="cart-item">
+                            <div>
+                                <strong>Maple Butter Sourdough</strong><br>
+                                <span class="qty">x 1</span>
+                            </div>
+                            <span class="price">CA$6.50</span>
+                        </div>
+                    </div>
+
+                    <div class="total-line"></div>
+
+                    <div class="total">
+                        Total: <strong>CA$14.40</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="element">
+                <h3>Contact Form</h3>
+
+                <p><strong>CSS selectors:</strong></p>
+                <code>.contact-container</code>
+                <code>.contact-info</code>
+                <code>.contact-form</code>
+                <code>.submit-btn</code>
+
+                <h4>Sample Code</h4>
+                <code>&lt;div class="contact-container"&gt;</code>
+                <code>&lt;section class="contact-info"&gt;...&lt;/section&gt;</code>
+                <code>&lt;section class="contact-form"&gt;...&lt;/section&gt;</code>
+                <code>&lt;/div&gt;</code>
+
+                <div class="contact-container">
+                    <section class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p><strong>Phone:</strong> (604) 555-1234</p>
+                        <p><strong>Email:</strong> hello@borealandbean.ca</p>
+                        <p><strong>Location:</strong> 14000 108 Ave, Surrey, BC</p>
+                    </section>
+
+                    <section class="contact-form">
+                        <h3>Send Us a Message</h3>
+
+                        <form>
+                            <label for="style-name">Your Name</label>
+                            <input type="text" id="style-name" placeholder="Your name">
+
+                            <label for="style-message">Message</label>
+                            <textarea id="style-message" placeholder="Tell us more..."></textarea>
+
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </section>
+                </div>
+            </section>
+        </div>
+
+    </main>
 
     <footer class="site-footer">
         <nav class="footernav">
@@ -368,5 +423,6 @@
 
         <p>© 2026 Boreal &amp; Bean. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
