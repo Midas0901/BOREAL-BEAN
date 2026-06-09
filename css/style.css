@@ -25,7 +25,6 @@ header {
     padding: 120px 20px 90px;
 }
 
-
 header h1 {
     font-family: 'Cinzel', serif;
     font-size: clamp(3.2rem, 8vw, 5.8rem);
@@ -39,8 +38,6 @@ header h2 {
     margin-bottom: 45px;
     color: var(--espresso);
 }
-
-
 
 header p {
     font-family: 'Cormorant Garamond', serif;
@@ -56,7 +53,6 @@ header p {
     width: 100%;
     text-align: left;               /* Important */
 }
-
 
 /* Navigation */
 .main-nav {
@@ -129,7 +125,7 @@ header p {
     text-decoration: none;
     font-family: 'Cinzel', serif;
     letter-spacing: 0.12em;
-    margin-bottom: 7px;            /* Space between links */
+    margin-bottom: 7px;             /* Space between links */
     text-align: left;
 }
 
@@ -137,39 +133,20 @@ header p {
     color: var(--gold-light);
 }
 .container1 div{
-
     background:#1A0F08;
-
 }
 
-.box1{
-    flex:1;
-}
-
-.box2{
-    flex:1;
-}
-
-.box3{
-    flex:1;
-}
-
-.box4{
-    flex:1;
-}
-
-.box5{
-    flex:1;
-}
-
-
+.box1{ flex:1; }
+.box2{ flex:1; }
+.box3{ flex:1; }
+.box4{ flex:1; }
+.box5{ flex:1; }
 
 /* Sections */
 .section {
     max-width: 1180px;
     margin: 90px auto;
     padding: 40px 0px;
-
 }
 
 .section h2 {
@@ -188,10 +165,7 @@ header p {
     color: var(--espresso);
 }
 
-
-
 /* About */
-
 .about-text h2{
     font-size: 1.5rem;
     color:#2C1A0E;
@@ -230,8 +204,7 @@ header p {
     margin-bottom: 30px;
 }
 
-.about-badges {
-    
+.about-badges {    
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 35px;
@@ -246,8 +219,7 @@ header p {
     letter-spacing: 0.1em;
 }
 
-.view-details {
-  
+.view-details {  
     background: var(--gold);
     color: var(--coffee);
     border: none;
@@ -346,20 +318,16 @@ form input, form select, form textarea {
     color: var(--gold);
 }
 
-/* Footer */
-
-
-
-/* Responsive */
+/* Responsive Block 1: Main Section Responsive Adjustments */
+/* https://www.youtube.com/watch?v=MYFgtnKMDp4 - we learn to do responsive from this video */
+/* if width exceed 768px it will reduce to 1 column from 2 columns */
 @media (max-width: 768px) {
     .about-grid { grid-template-columns: 1fr; }
     .section { padding: 0 20px; margin: 60px auto; }
     .story-image { max-width: 95%; }
 }
 
-
 /* Product Detail Pages */
-
 .product-detail-page {
     max-width: 1100px;
 }
@@ -423,20 +391,16 @@ form input, form select, form textarea {
     margin-left: 24px;
 }
 
-.product-card-content h3 {
-    font-family: 'Cinzel', serif;
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    text-align: left;
-    color: var(--espresso);
-}
-
+/* Responsive Block 2: Product Details & Navigation Responsive Adjustments */
+/* https://www.youtube.com/watch?v=MYFgtnKMDp4 - we learn to do responsive from this video */
+/* if width exceed 768px it will reduce to 1 column from 2 columns */
 @media (max-width: 768px) {
     .product-detail-hero {
         grid-template-columns: 1fr;
         gap: 35px;
     }
-        .nav-inner {
+    
+    .nav-inner {
         flex-direction: column;
         padding-bottom: 16px;
     }
