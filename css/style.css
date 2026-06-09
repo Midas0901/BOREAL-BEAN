@@ -391,6 +391,14 @@ form input, form select, form textarea {
     margin-left: 24px;
 }
 
+.product-card-content h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    text-align: left;
+    color: var(--espresso);
+}
+
 /* Responsive Block 2: Product Details & Navigation Responsive Adjustments */
 /* https://www.youtube.com/watch?v=MYFgtnKMDp4 - we learn to do responsive from this video */
 /* if width exceed 768px it will reduce to 1 column from 2 columns */
