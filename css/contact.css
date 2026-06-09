@@ -185,6 +185,24 @@ body {
     margin-top: auto;
 }
 
+.section-title {
+    margin-bottom: 8px;
+}
+
+.section > h2 {
+    text-align: center;
+    color: #8A7A6A;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.contact-info h3,
+.contact-form h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-inner {
